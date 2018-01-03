@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { QueryRenderer } from 'react-relay';
 import ENV from './env';
+import UI from './UI';
+import Error from './Error';
 
 export default class App extends Component {
   _app({ error, props }) {
-    if (error) import('./Error').then(({ Error }) => {
-      return <Error caption={""} details={error} />
-    });
-    else if (props) import('./UI').then(({ UI }) => {
-      return <UI />
-    });
-    else import('./LoadingPage').then(({ LoadingPage }) => {
-      return <LoadingPage />
-    });
+    if (error) {
+      return <Error caption={error} info={error} />
+    }
+    return <UI load={props} />;    
   }
 
   render() {
@@ -20,7 +17,7 @@ export default class App extends Component {
       <QueryRenderer
         environment={ENV}
         query=""
-        variables=""
+        variables={{app: true}}
         render={this._app}
       />
     );

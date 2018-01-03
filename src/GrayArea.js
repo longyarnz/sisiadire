@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import App from './App';
+import App from './components/App';
 
 export default class GrayArea extends Component {
   constructor(props) {
