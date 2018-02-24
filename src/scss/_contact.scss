@@ -1,0 +1,60 @@
+section.contact{
+  background-color: #fff;
+  padding: 20px 0px 30px;
+
+  h1{
+    @extend .title-caption;
+    color: purple;
+  }
+
+  p{
+    padding: 0px 20px;
+    font-size: 95%;
+    color: gray;
+    background-color: #fff;
+    font-weight: 300;
+    line-height: 1.8;
+
+    a{
+      color: orange;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+
+  div {
+    background-color: #fff;
+    padding: 0px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    main{
+      background-color: #fff;
+      display: inline-block;
+
+      i, span{
+        background-color: #fff;
+        color: gray;
+        font-weight: 300;
+        font-size: 150%;
+
+        &.fa-facebook-square{
+          color: $facebook;
+        }
+
+        &.fa-twitter-square{
+          color: $twitter;
+        }
+
+        &.fa-instagram{
+          color: $instagram;
+        }
+
+        &.fa-whatsapp{
+          color: $whatsapp;
+        }
+      }
+    }
+  }
+}

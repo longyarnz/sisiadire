@@ -2,16 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="theme-color" content="#fff">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <title>React App</title>
+    <title>Sisí Àdìre</title>
+    <style>
+ @font-face {font-family: DS;src: url('%PUBLIC_URL%/DS400.woff2') format('woff2'), url('%PUBLIC_URL%/DSX.otf') format('opentype');font-weight:
+normal;} * {-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#fff}html,body
+{width:100%;height:100%;margin:0px;position:relative;font-family:Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI',Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',arial,sans-serif;} @keyframes swell{from{transform:scale(0.9,0.9)}to{transform:scale(1,1)}} div#root{width:100%;display:block;position:relative;z-index:0} div#soil{width:100vw;height:100vh;position:fixed;top:0px;left:0px;z-index:0;background-color:
+#fff;} div#soil > section{width:100vw;height:100vh;background-color:#fff;display:flex;justify-content:center;flex-direction:column;overflow-y:hidden}
+div#soil > section > main{background-color:#fff;display:flex;justify-content:center;font-family:DS,cursive;font-weight:400;color:purple;font-size:250%;animation:swell .6s ease-in-out forwards infinite alternate}
+    </style>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <div id="soil">
+      <section>
+        <main>
+          Sisí Àdìre
+        </main>
+      </section>
+    </div>
     <div id="root"></div>
   </body>
 </html>

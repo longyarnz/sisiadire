@@ -1,0 +1,137 @@
+section.category {
+  width: 100%;
+  padding-bottom: 20px;
+  transition: opacity .5s ease-out;
+  background-color: #f9f9f9;
+
+  &.fade{
+    opacity: 0;
+  }
+
+  & > h1 {
+    @extend .title-caption;
+    color: purple;
+    background-color: transparent;
+  }
+
+  & > main{
+    width: 100%;
+    overflow-x: hidden;
+    padding: 10px 0px; 
+    position: relative;
+    background-color: transparent;
+    // text-align: center;
+
+    & > h2{
+      text-transform: capitalize;
+      font-family: $font;
+      font-weight: 400;
+      padding: 0px 20px;
+      color: #555;
+      font-size: 125%;
+      text-align: left;
+      background-color: transparent;
+    }
+
+    &:last-of-type{
+      padding-bottom: 0px;
+    }
+    
+    & > div{
+      width: auto;
+      height: 205px;
+      white-space: nowrap;
+      padding: 15px 20px 25px;
+      overflow-x: auto;
+      background-color: darken(#fff, 2.5%);
+      display: block;
+      position: relative;
+      text-align: left;
+
+      &::-webkit-scrollbar {
+        visibility: hidden;
+        height: 0px;
+        display: none;
+      }
+
+      & > div.chart{
+        width: 120px;
+        margin: 10px 20px;
+        margin-left: 0px;
+        display: inline-block;
+        box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.1),
+        0px 0px 4px rgba(0, 0, 0, 0.2);
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        
+        & > img{
+          height: 100px;
+          width: 100%;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+
+        & > div{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #fff;
+          margin-top: -5px;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          padding: 5px;
+
+          & > h3{
+            font-family: $font;
+            font-weight: bold;
+            color: orange;
+            font-size: 80%;
+            margin: 0px;
+            margin-top: -2px;
+            text-align: center;
+            background-color: transparent;
+            height: auto;
+            
+            &:first-of-type{
+              color: gray;
+              font-weight: 300;
+            }
+          }
+        }
+
+        &:last-of-type{
+          margin-right: 0px;
+        }
+      }
+
+      &:last-of-type {
+        padding-bottom: 20px;
+      }
+    }
+
+    & > a.view-all {
+      text-decoration: none;
+      font-size: 85%;
+      background-color: #fff;
+      padding: 5px 10px;
+      color: orange;
+      font-weight: 400;
+      font-family: $font;
+      border-radius: 5px;
+      display: inline-block;
+      position: relative;
+      bottom: 42px;
+      left: 20px;
+      height: auto;
+      width: auto;
+      box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.1), 0px 0px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  & > figure {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    overflow: hidden;
+  }
+}

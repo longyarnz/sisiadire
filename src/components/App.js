@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import { QueryRenderer } from 'react-relay';
-import ENV from './env';
 import UI from './UI';
-import Error from './Error';
 
 export default class App extends Component {
-  _app({ error, props }) {
-    if (error) {
-      return <Error caption={error} info={error} />
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      view: null
     }
-    return <UI load={props} />;    
-  }
 
+    this.actions = {
+      a: 1
+    }
+  }
+  
   render() {
-    return (
-      <QueryRenderer
-        environment={ENV}
-        query=""
-        variables={{app: true}}
-        render={this._app}
-      />
-    );
+    return <UI data={this.state} actions={this.actions} />;
   }
 }

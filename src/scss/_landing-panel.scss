@@ -1,0 +1,20 @@
+section.landing-panel{
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: hidden;
+  
+  main{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    font-family: DS;
+    font-weight: bold;
+    color: purple;
+    font-size: 250%;
+    animation: swell .6s ease-in-out forwards infinite alternate;
+  }
+}

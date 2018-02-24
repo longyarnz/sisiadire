@@ -1,0 +1,54 @@
+@keyframes svg-Z {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    width: 80%;
+    opacity: 1;
+  }
+}
+
+@keyframes svg-Y {
+  from {
+    transform: rotate(40deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes svg-X {
+  from {
+    transform: rotate(-40deg);
+    y: 18px;
+  }
+  to {
+    transform: rotate(0deg);
+    y: 16px;
+  }
+}
+
+svg.sandwich {
+  background-color: transparent;
+  overflow: hidden;
+  height: 24px;
+  width: 28px;
+  
+  rect {
+    fill: orange;
+    
+    &:first-of-type {
+      animation: svg-Y .3s ease-out both .5s;
+    }
+
+    &:nth-of-type(2) {
+      animation: svg-Z .3s ease-out both .5s;
+    }
+
+    &:nth-of-type(3) {
+      animation: svg-X .3s ease-out both .5s;
+      transform-origin: 0% 100%;
+    }
+  }
+}

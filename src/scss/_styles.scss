@@ -1,0 +1,35 @@
+@keyframes swell {
+  from {
+    transform: scale(.9, .9);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+.title-caption{
+  color: #fff;
+  font-family: DS;
+  font-weight: 400;
+  font-size: 200%;
+  text-align: center;
+  margin: 0px;
+  padding: 40px 0px;
+  margin: 20px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+
+  &::before{
+    content: "";
+    width: 20%;
+    // margin: auto;
+    left: calc(50% - 10%);
+    height: 4px;
+    bottom: 15px;
+    background-color: orange;
+    position: absolute;
+  }
+}

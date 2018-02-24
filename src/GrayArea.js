@@ -10,8 +10,8 @@ export default class GrayArea extends Component {
   }
   
   async componentDidCatch(error, info){
-    const Error = await import('./components/Error');
-    this.setState({ view: <Error caption={error} info={info} /> });
+    const { default: Error } = await import('./components/Error');
+    this.setState({ view: <Error error={error} info={info} /> });
   }
 
   render() {

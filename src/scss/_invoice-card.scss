@@ -1,0 +1,78 @@
+header.invoice-card {
+  padding: 0px 5px;
+  color: gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & > h4{
+    margin: 0px;
+    margin-right: auto;
+    padding: 2px 0px;
+    padding-right: 10px;
+    font-size: 120%;
+    color: orange;
+
+    span{
+      color: #555;
+    }
+  }
+
+  & > i{
+    padding: 0px 5px;
+    direction: rtl;
+    position: relative;
+    right: 40px;
+    color: #000;
+
+    &:active, &:focus, &:hover{
+      color: orange;
+    }
+  }
+}
+
+div.invoice-card {
+  overflow: hidden;
+  height: calc(100% - 22px);
+
+  & > i {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 900%;
+    padding: 20px;
+    color: purple;
+    height: 38%;
+
+    &.click {
+      color: green;
+    }
+  }
+
+  & > h3 {
+    text-align: center;
+    font-size: 200%;
+    color: #555;
+    font-family: Roboto, arial;
+    font-weight: 700;
+    
+    &:nth-of-type(2) {
+      height: 40%;
+      background-color: orange;
+      color: #fff;
+      font-size: 150%;
+      // height: 35vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      margin: 0px;
+      z-index: 5;
+      transition: all .25s ease;
+    }
+
+    &.click {
+      background-color: green;
+    }
+  }
+}

@@ -1,31 +1,16 @@
-/* Plugins */
-
-@import "plugin/_plugin.scss";
-
-/* Fonts */
-
-@import "fonts/_font.scss";
-
-/* Base */
-
-@import "base/_variables.scss";
-@import "base/_normalize.scss";
-@import "base/_base.scss";
-
-/* Layouts */
-
-@import "layouts/_header.scss";
-@import "layouts/_nav.scss";
-@import "layouts/_footer.scss";
-
-/* Modules */
-
-@import "modules/_animations.scss";
-@import "modules/_icons.scss";
-@import "modules/_buttons.scss";
-@import "modules/_typography.scss";
-@import "modules/_sections.scss";
-@import "modules/_article.scss";
-@import "modules/_forms.scss";
-@import "modules/_lists.scss";
-@import "modules/_figures.scss";
+@import "_var.scss";
+@import "_styles.scss";
+@import "_font.scss";
+@import "_cart-button.scss";
+@import "_sandwich.scss";
+@import "_nav.scss";
+@import "_footer.scss";
+@import "_invoice-card.scss";
+@import "_modal.scss";
+@import "_banner.scss";
+@import "_contact.scss";
+@import "_item.scss";
+@import "_category.scss";
+@import "_about.scss";
+@import "_shop.scss";
+@import "_error.scss";
