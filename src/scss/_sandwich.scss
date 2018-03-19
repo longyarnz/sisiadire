@@ -4,7 +4,7 @@
     opacity: 0;
   }
   to {
-    width: 80%;
+    width: 40%;
     opacity: 1;
   }
 }
@@ -21,11 +21,9 @@
 @keyframes svg-X {
   from {
     transform: rotate(-40deg);
-    y: 18px;
   }
   to {
     transform: rotate(0deg);
-    y: 16px;
   }
 }
 
@@ -33,21 +31,22 @@ svg.sandwich {
   background-color: transparent;
   overflow: hidden;
   height: 24px;
-  width: 28px;
+  width: 58px;
+  cursor: pointer;
   
   rect {
     fill: orange;
     
     &:first-of-type {
-      animation: svg-Y .3s ease-out both .5s;
+      animation: svg-Y .3s ease-out both;
     }
 
     &:nth-of-type(2) {
-      animation: svg-Z .3s ease-out both .5s;
+      animation: svg-Z .3s ease-out both;
     }
 
     &:nth-of-type(3) {
-      animation: svg-X .3s ease-out both .5s;
+      animation: svg-X .3s ease-out both;
       transform-origin: 0% 100%;
     }
   }

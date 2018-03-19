@@ -10,7 +10,7 @@ export default function Contact() {
         You are welcome to call us anyday, anytime for your choice Àdìre wears.<br /> <br />
         Call us on: <a href="tel:08082935102">08082935102</a>
       </p>
-      <div>
+      <span>Social Media: </span><div>
         <Icon type="whatsapp" src="https://api.whatsapp.com/send?phone=08082935102" />
         <Icon type="facebook" />
         <Icon type="twitter" />

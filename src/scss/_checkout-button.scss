@@ -1,0 +1,25 @@
+button.checkout-button {
+  width: 58px;
+  border: 1px solid orange;
+  padding: 0px 0px 0px 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
+  font-family: $font;
+  
+  & > i{
+    color: gray;
+    font-size: 150%;
+    min-width: 27px;
+  }
+  
+  & > span{
+    min-width: 27px;
+    background-color: orange;
+    color: #fff;
+    padding: 4px 6px;
+    height: 24px;
+    font-weight: 700;
+  }
+}

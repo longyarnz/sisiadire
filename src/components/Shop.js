@@ -7,22 +7,67 @@ import Import from './Import';
 export default class Shop extends Component {
   constructor(props) {
     super(props)
+    this.empty = this.empty.bind(this);
     this.clicke = this.clicke.bind(this);
     this.showOne = this.showOne.bind(this);
     this.showAll = this.showAll.bind(this);
+    this.seeBall = this.seeBall.bind(this);
+    this.genInfo = this.genInfo.bind(this);
+    this.seeForm = this.seeForm.bind(this);
+    this.checkout = this.checkout.bind(this);
+    this.updateCart = this.updateCart.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       view: this.showAll(),
-      title: "Àdìre Store"
+      title: "Àdìre Store",
+      scrolled: '', ball: false,
+      checkout: false, cart: [],
+      info: false, customer: this.props.data.customer
     }
   }
 
-  componentDidMount () {
+  componentWillMount(cart) {
+    this.setState({ cart: this.props.data.cart });
+  }
+
+  empty() {
+    this.props.actions.add(false);
+    this.setState({ cart: [] });
+  }
+
+  updateCart(cart) {
+    this.setState({ cart });
+  }
+
+  seeForm(infoPoint) {
+    this.setState(i => ({ info: !i.info, infoPoint }));
+  }
+
+  handleScroll() {
+    const top = document.scrollingElement.scrollTop;
+    if (top >= 150 && this.state.scrolled !== 'scrolled') this.setState({ scrolled: 'scrolled' });
+    else if (top === 0 && this.state.scrolled !== 'scrolled top' && this.state.scrolled === 'scrolled') {
+      this.setState({ scrolled: 'scrolled top' });
+      setTimeout(() => {
+        this.setState({ scrolled: '' });
+      }, 1200);
+    }
+    else return;
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
     document.getElementsByTagName('html')[0].scrollIntoView();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   clicke(i){
-    const { actions, actions: { paginate } } = this.props;
-    paginate(<Import name="Item" i={i} actions={actions} />);
+    const { actions, data, actions: { paginate } } = this.props;
+    const { cart } = this.state;
+    paginate(<Import name="Item" i={i} actions={actions} data={data} cart={cart} />);
   }
 
   showOne(i, o){
@@ -43,10 +88,25 @@ export default class Shop extends Component {
     }
   }
 
+  genInfo(customer){
+    this.setState({ customer });
+    this.props.actions.genInfo(customer);
+  }
+
+  checkout(story) {
+    this.setState(i => ({ checkout: !i.checkout }));
+  }
+
+  seeBall() {
+    this.setState(i => ({ ball: !i.ball }));
+  }
+
   render() {
+    const { actions } = this.props;
+    const { cart, ball, info, infoPoint } = this.state;
     return (
       <Fragment>
-        <Nav type={false} click={this.props.actions.back} />
+        <Nav type={false} cart={cart.length} click={actions.back} blog={false} checkout={this.checkout} />
         <section className="shop">
           <h1>{this.props.ctg}</h1>
           <main>
@@ -54,6 +114,28 @@ export default class Shop extends Component {
           </main>
         </section>    
         <Footer />
+        {
+          this.state.scrolled !== '' &&
+          <Import name="ScrolledNav" type={false} attr={this.state.scrolled} blog={false} cart={cart.length} click={actions.back} />
+        }
+        {
+          this.state.checkout &&
+          <Import name="Modal" toggle={this.checkout}>
+            <Import name="CheckoutTab" slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={this.seeForm} />
+          </Import>
+        }
+        {
+          ball &&
+          <Import name="Ball" toggle={this.seeBall} cart={cart.length}>
+            <Import name="Form" upload={this.genInfo} customer={this.props.data.customer} />
+          </Import>
+        }
+        {
+          info &&
+          <Import name="Ball" toggle={this.seeForm} cart={cart.length} story={infoPoint}>
+            <Import name="Form" upload={this.genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
+          </Import>
+        }
       </Fragment>
     )
   }

@@ -1,0 +1,53 @@
+form{
+  position: relative;
+  padding: 0px 20px;
+  margin-bottom: 50px;
+  transition: all .5s ease-in;
+  
+  h3{
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    font-weight: 900;
+    font-size: 105%;
+  }
+  
+  input{
+    width: calc(100% - 5px);
+    padding: 5px;
+    color: #555;
+    border: none;
+    border-bottom: 3px solid orange;
+    box-shadow: none;
+    font-size: 90%;
+    margin-bottom: 40px;
+    font-family: $font;
+    transition: all .5s ease;
+    font-weight: 700;
+    
+    &:focus{
+      outline: none;
+      border-bottom-color: purple;
+      color: purple;
+      font-weight: 700;
+    }
+    
+    &:empty{
+      font-weight: 400;
+    }
+  }
+  
+  button{
+    font-family: $font;
+    border: none;
+    color: orange;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 0px 0px;
+
+    &:focus, &:active{
+      outline: none;
+      border: none;
+      color: darken(purple, 0%);
+    }
+  }
+}

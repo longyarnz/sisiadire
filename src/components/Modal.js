@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from './Nav';
 
 export default class Modal extends Component {
   constructor(props){
@@ -6,7 +7,7 @@ export default class Modal extends Component {
     this.e = [];
     this.close = this.close.bind(this);
     this.get = this.get.bind(this);
-    this.state = { confirmed: false }
+    this.state = { confirmed: false, notReady: false }
   }
 
   componentWillMount(){
@@ -16,18 +17,17 @@ export default class Modal extends Component {
   componentWillUnmount(){
     document.getElementsByTagName('html')[0].style.overflow = 'auto';
   }
-
+  
   close() {
-    this.setState({ direction: 'reverse' });
-    setTimeout(() => {
-      this.e[0].style.animation = 'none';
-    }, 100);
+    if(this.state.notReady) return;
+    this.setState({ direction: 'reverse', notReady: true });
+    this.e[0].style.animation = 'none';
     setTimeout(() => {
       this.e[0].style.animation = '';
-    }, 200);
+    }, 50);
     setTimeout(() => {
       this.props.toggle();
-    }, 650);
+    }, 750);
   }
 
   get(x){
@@ -36,12 +36,12 @@ export default class Modal extends Component {
 
   render() {
     return (
-      <main ref={this.get} className="modal">
+      <section ref={this.get} className="modal">
+        <Nav type={false} attr="modal" click={this.close} />
         <div className={this.state.direction} ref={this.get}>
-          <i className="material-icons" onClick={this.close}>close</i>
           {this.props.children}
         </div>
-      </main>
+      </section>
     );
   }
 }

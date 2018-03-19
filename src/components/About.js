@@ -19,27 +19,10 @@ export default function About() {
     }]
   }
   
-  const y = {
-    title: "The Designs are",
-    figures: [{
-      icon: "fa fa-check-square",
-      phrase: "CLASSY",
-    },{
-      icon: "fa fa-check-square",
-      phrase: "FITTING",
-    }, {
-      icon: "fa fa-check-square",
-      phrase: "AWESOME",
-    }, {
-      icon: "fa fa-check-square",
-      phrase: "STYLISH",
-    }]
-  }
-
   return (
     <section className="about">
+      <h1>{x.title}</h1>
       <Frames x={x} attr="about-frame" />
-      <Frames x={y} attr="about-frame" />
     </section>
   )
 }

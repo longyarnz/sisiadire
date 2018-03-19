@@ -1,8 +1,17 @@
+@keyframes swipe{
+  from{
+    transform: translate(0, 0);
+  }
+  to{
+    transform: translate(10px, 0);
+  }
+}
+
 section.category {
   width: 100%;
   padding-bottom: 20px;
   transition: opacity .5s ease-out;
-  background-color: #f9f9f9;
+  background-color: #fff;
 
   &.fade{
     opacity: 0;
@@ -20,21 +29,24 @@ section.category {
     padding: 10px 0px; 
     position: relative;
     background-color: transparent;
-    // text-align: center;
 
     & > h2{
-      text-transform: capitalize;
+      text-transform: uppercase;
       font-family: $font;
-      font-weight: 400;
+      font-weight: 700;
       padding: 0px 20px;
       color: #555;
-      font-size: 125%;
+      font-size: 100%;
       text-align: left;
       background-color: transparent;
     }
 
     &:last-of-type{
       padding-bottom: 0px;
+      
+      @media screen and (min-width: $min) {
+        padding-bottom: 3px;
+      }
     }
     
     & > div{
@@ -47,6 +59,18 @@ section.category {
       display: block;
       position: relative;
       text-align: left;
+      box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.1),
+      0px 0px 4px rgba(0, 0, 0, 0.2);
+      
+      @media screen and (min-width: $min) {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        align-items: flex-start
+      }
 
       &::-webkit-scrollbar {
         visibility: hidden;
@@ -58,17 +82,24 @@ section.category {
         width: 120px;
         margin: 10px 20px;
         margin-left: 0px;
+        cursor: pointer;
         display: inline-block;
-        box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.1),
-        0px 0px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 2px -3px rgba(0, 0, 0, 0.2),
+        0px 2px 8px rgba(0, 0, 0, 0.3),
+        0px 0px 4px rgba(0, 0, 0, 0.1);
         background-color: #f9f9f9;
-        border-radius: 10px;
+        border-radius: 3px;
+        
+        @media screen and (min-width: $min) {
+          width: calc(25% - 10px);
+          margin: 10px 0px;
+        }
         
         & > img{
           height: 100px;
           width: 100%;
-          border-top-left-radius: 10px;
-          border-top-right-radius: 10px;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
         }
 
         & > div{
@@ -109,22 +140,51 @@ section.category {
       }
     }
 
-    & > a.view-all {
-      text-decoration: none;
-      font-size: 85%;
-      background-color: #fff;
-      padding: 5px 10px;
-      color: orange;
-      font-weight: 400;
-      font-family: $font;
-      border-radius: 5px;
-      display: inline-block;
-      position: relative;
+    & > footer{
       bottom: 42px;
-      left: 20px;
-      height: auto;
-      width: auto;
-      box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.1), 0px 0px 4px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      background-color: transparent;
+      padding: 0px 20px;
+      align-items: center;
+
+      & > a.view-all {
+        text-decoration: none;
+        font-size: 85%;
+        background-color: #fff;
+        padding: 5px 10px;
+        color: orange;
+        font-weight: 400;
+        font-family: $font;
+        border-radius: 2px;
+        display: inline-block;
+        position: relative;
+        height: auto;
+        width: auto;
+        box-shadow: 0px 8px 4px -3px rgba(0, 0, 0, 0.2),
+        0px 2px 8px rgba(0, 0, 0, 0.3),
+        0px 0px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      & > i {
+        color: gray;
+        font-size: 120%;
+        position: relative;
+        background-color: transparent;
+        font-weight: 700;
+        display: inline-block;
+        animation: swipe ease-in .5s infinite alternate;
+      }
+
+      @media screen and (min-width: $min) {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $min) {
+      padding: 3px;
+      margin-bottom: 50px;
     }
   }
 

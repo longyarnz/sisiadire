@@ -10,7 +10,7 @@ div.cart-button{
     align-items: center;
     height: 55px;
     width: 55px;
-    top: -32px;
+    top: -42px;
     background-color: transparent;
     margin: auto;
     transition: all .25s ease;
@@ -39,12 +39,8 @@ div.cart-button{
     }
 
     &:active{
-      main{
-        background-color: orange;
-      }
-
       i{
-        // color: purple;
+        color: orange;
       }
     }
   }

@@ -1,4 +1,27 @@
+@keyframes drop-in{
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes drop-in-lg{
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    top: 10px;
+    opacity: 1;
+  }
+}
+
 nav {
+  @extend .shadow;
   width: 100%;
   height: 50px;
   display: flex;
@@ -7,21 +30,89 @@ nav {
   padding: 10px 20px;
   color: #fff;
   background-color: #fff;
-  overflow: hidden;
-  top: 0px;
-  
-  &.scrolled{
-    position: sticky;
-    box-shadow: 0px 4px 12px rgba(#000, .2),
-    0px 0px 2px rgba(#000, .3);
+  position: relative;
+  z-index: 2;
+  transition: all .2s ease-in;
+
+  & > i {
+    color: #fff;
   }
 
-  span{
+  &.scrolled{
+    position: fixed;
+    z-index: 1;
+    opacity: 0;
+    animation: drop-in .4s ease-out forwards !important;
+    box-shadow: 0px 4px 12px rgba(#000, .2),
+    0px 2px 2px rgba(#000, .2),
+    0px 3px 8px rgba(#000, .1),
+    0px 0px 4px rgba(#000, .1);
+    transition: box-shadow .5s ease, opacity .5s ease;
+    
+    & > span{
+      display: none;
+    }
+
+    &>i {
+      color: orange;
+    }
+    
+    &.top{
+      box-shadow: 0px 4px 8px rgba(#000, 0),
+      0px 2px 2px rgba(#000, 0),
+      0px 3px 8px rgba(#000, 0),
+      0px 0px 4px rgba(#000, 0);
+      opacity: 0;
+      transition: box-shadow .5s ease, opacity .5s ease;
+    }
+
+    @media screen and (min-width: $min) {
+      width: $min - 20px;
+      animation: drop-in-lg .4s ease-out forwards !important;
+    }
+  }
+
+  &.modal{
+    position: fixed;
+    z-index: 0;
+    box-shadow: none;
+    background-color: #999;
+    animation: drop-in .4s ease-out forwards !important;
+    
+    & > i{
+      background-color: transparent;
+      color: #fff;
+
+      &:hover {
+        color: red;
+      }
+    }
+    
+    & > span, & > button {
+      display: none;
+    }
+    
+    @media screen and (min-width: $min) {
+      width: $min + 40px;
+      flex-direction: row-reverse;
+    }
+
+    &:hover{
+      transform: scale(1, 1);
+      box-shadow: initial;
+    }
+  }
+
+  & > span{
     color: purple;
     font-family: DS;
     font-weight: 400;
     font-size: 160%;
     z-index: 0;
     animation: swell .75s ease-in-out forwards infinite alternate;
+  }
+
+  @media screen and (min-width: $min) {
+    border-radius: 3px;
   }
 }

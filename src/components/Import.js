@@ -6,7 +6,7 @@ export default class Import extends Component {
     this.state = { view: null }
   }
 
-  async componentWillMount() {
+  componentWillMount() {
     this.componentWillReceiveProps(this.props);
   }
 
@@ -17,7 +17,7 @@ export default class Import extends Component {
       Load.defaultProps = props;
     }
     finally {
-      this.setState(i => { return { view: <Load /> } });
+      this.setState(i => ({ view: <Load /> }));
     }
   }
 

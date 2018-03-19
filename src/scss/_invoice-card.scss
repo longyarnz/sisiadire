@@ -4,6 +4,8 @@ header.invoice-card {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 10%;
+  box-shadow: 0px 2px 4px #fff;
 
   & > h4{
     margin: 0px;
@@ -33,15 +35,15 @@ header.invoice-card {
 
 div.invoice-card {
   overflow: hidden;
-  height: calc(100% - 22px);
+  height: 90%;
 
   & > i {
     display: flex;
     justify-content: center;
     margin: auto;
-    font-size: 900%;
+    font-size: 600%;
     padding: 20px;
-    color: purple;
+    color: #555;
     height: 38%;
 
     &.click {
@@ -53,15 +55,14 @@ div.invoice-card {
     text-align: center;
     font-size: 200%;
     color: #555;
-    font-family: Roboto, arial;
+    font-family: $font;
     font-weight: 700;
     
     &:nth-of-type(2) {
-      height: 40%;
+      height: 42.5%;
       background-color: orange;
       color: #fff;
       font-size: 150%;
-      // height: 35vh;
       display: flex;
       justify-content: center;
       align-items: center;

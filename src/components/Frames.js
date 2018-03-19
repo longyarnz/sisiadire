@@ -3,7 +3,6 @@ import React from 'react';
 export default function Frame ({ x, attr }) {
   return (
     <main className={attr}>
-      <h1>{x.title}</h1>
       {
         x.figures.map((a, e) => (
           <figure key={e}>

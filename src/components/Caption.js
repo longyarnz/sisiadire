@@ -8,14 +8,14 @@ export default class Caption extends Component{
     this.add = this.add.bind(this);
     this.subtract = this.subtract.bind(this);
     this.state = {
-      quantity: 1, cost: props.item.price
+      quantity: 1, cost: props.item.price, x: "", y: ""
     }
   }
 
   add(){
     this.setState((i, o) => {
       const cost = ++i.quantity * o.item.price;
-      this.props.click(cost);
+      this.props.click(cost, i.quantity, o.item.price);
       return {
         quantity: i.quantity,
         x: "", y: "active",
@@ -28,7 +28,7 @@ export default class Caption extends Component{
     if(this.state.quantity === 1) return;
     this.setState((i, o) => {
       const cost = --i.quantity * o.item.price;
-      this.props.click(cost);
+      this.props.click(cost, i.quantity, o.item.price);
       return {
         quantity: i.quantity,
         y: "", x: "active",
@@ -49,9 +49,9 @@ export default class Caption extends Component{
         </header>
         <p>{item.desc}</p>
         <footer className="caption">
-          <Button ext={x} goog={`remove`} attr="a" click={this.subtract} />
+          <Button ext={x} goog={`remove`} click={this.subtract} />
           <input type="text" value={`${quantity}`} disabled />
-          <Button ext={y} goog={`add`} attr="a" click={this.add} />
+          <Button ext={y} goog={`add`} click={this.add} />
         </footer>
       </Fragment>
     )

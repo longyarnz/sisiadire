@@ -1,0 +1,26 @@
+button.over-button{
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  
+  & > i{
+    position: absolute;
+    background-color: transparent;
+    margin: auto;
+    z-index: 1;
+
+    &.over{
+      font-size: 1200%;
+      color: darken(orange, 10%);
+    }
+    
+    &.under{
+      z-index: 2;
+      font-size: 400%;
+      color: darken(orange, 20%);
+    }
+  }
+}

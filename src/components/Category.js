@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Charts from './Charts';
-import image from "../files/demo.jpg";
 import Import from './Import';
 
 export default class Category extends Component {
@@ -13,7 +12,7 @@ export default class Category extends Component {
   }
   
   click(ctg){
-    let { items, actions, actions: {paginate}} = this.props;
+    let { items, actions, data, actions: {paginate} } = this.props;
     if(typeof ctg === "string"){
       const pool = [];
       for (const x in items) {
@@ -21,10 +20,10 @@ export default class Category extends Component {
           pool.push(items[x]);
         }
       }
-      paginate(<Import name="Shop" items={pool} ctg={ctg} actions={actions} />);
+      paginate(<Import name="Shop" items={pool} ctg={ctg} actions={actions} data={data} />);
     }
     else{
-      paginate(<Import name="Item" i={ctg} actions={actions} />);
+      paginate(<Import name="Item" i={ctg} actions={actions} cart={data.cart} data={data} />);
     }
   }
 
@@ -40,12 +39,15 @@ export default class Category extends Component {
             {
               u.map((a, e) => {
                 return a.ctg === i.ctg ? (
-                  <Charts title={i.title} ctg={i.ctg} i={i} img={i.img} attr="chart" click={() => this.click(i)} tag={i.tag} key={e} />
+                  <Charts title={i.title} ctg={i.ctg} img={i.img} attr="chart" click={() => this.click(i)} tag={i.tag} key={e} />
                 ) : null;
               })
             }
           </div>
-          <a className="view-all" onClick={() => this.click(i.ctg)}>View All</a>
+          <footer>
+            <a className="view-all" onClick={() => this.click(i.ctg)}>View All</a>
+            <i className="material-icons">chevron_right</i>
+          </footer>
         </main>
       )
     });
@@ -59,91 +61,4 @@ export default class Category extends Component {
       </section>
     )
   }
-}
-
-const desc = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque architecto, tempore quia quaerat facilis quae ullam dolorum.";
-
-Category.defaultProps = {
-  items: [
-    {
-      title: "Aso Ebi",
-      ctg: "blouses",
-      price: 10000,
-      tag: "10K",
-      desc,
-      img: image
-    },
-    {
-      title: "Iro Pupa",
-      ctg: "gowns",
-      price: 5000,
-      tag: "5K",
-      desc,
-      img: image
-    },
-    {
-      title: "Fila Ode",
-      ctg: "caps",
-      price: 7000,
-      tag: "7K",
-      desc,
-      img: image
-    },
-    {
-      title: "Vintage",
-      ctg: "male shirts",
-      price: 7000,
-      tag: "7K",
-      desc,
-      img: image
-    },
-    {
-      title: "Fila Abete",
-      ctg: "caps",
-      price: 1000,
-      tag: "1K",
-      desc,
-      img: image
-    },
-    {
-      title: "Ewu Oko",
-      ctg: "gowns",
-      price: 5000,
-      tag: "5K",
-      desc,
-      img: image
-    },
-    {
-      title: "Aso Opa",
-      ctg: "blouses",
-      price: 7000,
-      tag: "7K",
-      desc,
-      img: image
-    },
-    {
-      title: "Fila Abete",
-      ctg: "caps",
-      price: 1000,
-      tag: "1K",
-      desc,
-      img: image
-    },
-    {
-      title: "Ewu Oko",
-      ctg: "gowns",
-      price: 5000,
-      tag: "5K",
-      desc,
-      img: image
-    },
-    {
-      title: "Aso Opa",
-      ctg: "blouses",
-      price: 7000,
-      tag: "7K",
-      desc,
-      img: image
-    }
-  ]
 }

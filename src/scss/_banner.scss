@@ -1,11 +1,10 @@
 section.banner{
   width: 100%;
-  height: 100%;
   overflow: hidden;
-  padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-
+  
   & > main{
     color: gray;
     font-size: 300%;
@@ -25,7 +24,45 @@ section.banner{
     }
   }
   
-  & > img{
-    width: 100%;
+  & > figure{
+    margin: 10px 20px 30px;
+
+    & > img {
+      @extend .shadow;
+      width: 100%;
+      border-radius: 3px;
+      max-height: 240px;
+      
+      @media screen and (min-width: $min) {
+        max-height: 400px;
+      }
+    }
+    
+    & > figcaption {
+      padding: 5px 0px;
+      text-transform: uppercase;
+      font-size: 85%;
+      color: purple;
+      font-weight: 700;
+      text-align: right;
+      
+      main{
+        span{
+          color: orange;
+        }
+      }
+    }
+    
+    &:first-of-type{
+      margin-top: 20px;
+    }
+
+    @media screen and (min-width: $min) {
+      margin: auto 5px 40px;
+    }
+  }
+  
+  @media screen and (min-width: $min) {
+    padding: 10px 5px 30px;
   }
 }

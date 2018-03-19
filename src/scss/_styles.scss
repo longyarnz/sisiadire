@@ -25,11 +25,26 @@
   &::before{
     content: "";
     width: 20%;
-    // margin: auto;
     left: calc(50% - 10%);
     height: 4px;
     bottom: 15px;
     background-color: orange;
     position: absolute;
+  }
+}
+
+.shadow{
+  transition: all .2s ease !important;
+
+  @media screen and (min-width: $min) {
+    box-shadow: 0px 4px 2px -3px rgba(0, 0, 0, 0.2), 0px 2px 8px rgba(0, 0, 0, 0.3), 0px 0px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover{
+    transform: scale(1.01, 1.01);
+
+    @media screen and (min-width: $min) {
+      box-shadow: 0px 10px 2px -5px rgba(0, 0, 0, 0.2), 0px 5px 8px rgba(0, 0, 0, 0.3), 0px 0px 4px rgba(0, 0, 0, 0.1);
+    }
   }
 }

@@ -7,7 +7,7 @@ section.contact{
     color: purple;
   }
 
-  p{
+  & > p, & > span{
     padding: 0px 20px;
     font-size: 95%;
     color: gray;
@@ -22,12 +22,21 @@ section.contact{
     }
   }
 
+  & > span{
+    color: orange;
+    
+    @media screen and (max-width: $min - 1px){
+      display: none;
+    }
+  }
+
   div {
     background-color: #fff;
     padding: 0px 20px 20px;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 
     main{
       background-color: #fff;
@@ -55,6 +64,10 @@ section.contact{
           color: $whatsapp;
         }
       }
+    }
+
+    @media screen and (min-width: $min) {
+      width: 70%;
     }
   }
 }

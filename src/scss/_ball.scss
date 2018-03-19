@@ -1,0 +1,154 @@
+@keyframes scale-out{
+  from{
+    transform: scale(0, 0);
+  }
+  
+  to{
+    transform: scale(15, 15);
+  }
+}
+
+@keyframes scale-out-lg{
+  from{
+    transform: scale(0, 0);
+  }
+  
+  to{
+    transform: scale(30, 30);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+section.ball {
+  top: 0px;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  overflow-y: auto;
+  background-color: #fff;
+  z-index: 20 !important;
+  overflow: hidden;
+  border-radius: 50%;
+  animation: scale-out 1s ease-out forwards;
+  
+  & > * {
+    opacity: 0;
+    transition: opacity .5s ease-out;
+    animation: fade-in .5s ease-in forwards .6s;
+    
+    @media screen and (min-width: $min) {
+      animation: fade-in 1s ease-in forwards .6s;
+    }
+  }
+
+  @media screen and (min-width: $min) {
+    animation: scale-out-lg 1.3s ease-out forwards;
+  }
+
+  nav {
+    &.scrolled{
+      & > span{
+        display: inline;
+      }
+    }
+
+    button{
+      display: none;
+    }
+  }
+  
+  &.mounted{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    animation: none;
+    overflow: auto;
+
+    @media screen and (min-width: $min) {
+      width: 100%;
+      overflow-x: hidden;
+      margin: auto;
+      left: 0px;
+      right: auto;
+      padding: 80px calc(50% - 300px) 0px;
+    }
+  }
+
+  &.reverse {
+    animation: scale-out .7s ease-in both reverse !important;
+    
+    @media screen and (min-width: $min) {
+      animation: scale-out-lg .7s ease-in both reverse !important;
+    }
+
+    & > * {
+      opacity: 0 !important;
+    }
+  }
+
+  figure{
+    margin: 50px 0px 0px;
+    width: 100%;
+
+    img{
+      @extend .shadow;
+      width: 100%;
+      max-height: 300px;
+
+      @media screen and (min-width: $min) {
+        width: 100%;
+        max-height: 400px;
+      }
+    }
+
+    figcaption{
+      padding: 0px 20px;
+
+      p{
+        color: #555;
+        line-height: 1.8;
+        font-size: 85%;
+        font-weight: 300;
+        
+        @media screen and (min-width: $min) {
+          font-weight: 400;
+        }
+      }
+
+      h3{
+        &:first-of-type{
+          color: #000;
+        }
+      }
+
+      h5{
+        color: orange;
+        font-size: 95%;
+      }
+
+      @media screen and (min-width: $min) {
+        padding: 0px;
+      }
+    }
+
+    @media screen and (min-width: $min) {
+      margin: auto;
+      width: 100%;
+      padding: 0px 10px;
+    }
+  }
+
+  @media screen and (min-width: $min) {
+    margin: auto;
+    left: auto;
+    right: auto;
+  }
+}

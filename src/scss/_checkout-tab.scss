@@ -1,0 +1,73 @@
+div.checkout-tab{
+
+  & > main{
+    text-align: center;
+    
+    figure.checkout-tab{
+      @extend .menutab;
+      height: 70px !important;
+
+      img{
+        display: none;
+      }
+
+      & > figcaption{
+        h5{
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          font-size: 110% !important;
+
+          i{
+            color: red;
+            font-size: 120%;
+            font-weight: bold;
+          }
+        }
+
+        & > div.checkout-tab{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #555;
+
+          span:first-of-type{
+            font-weight: 700; 
+          }
+          
+          span:last-of-type{
+            font-weight: 700;
+          }
+          
+          & > button{
+            border: none;
+            color: orange;
+            
+            i{
+              font-weight: bolder;
+            }
+
+            &:focus, &:active{
+              color: #555;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    & > button{
+      border: none;
+      font-family: $font;
+      padding: 10px;
+      font-size: 85%;
+      border-radius: 5px;
+      text-transform: uppercase;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      color: orange;
+      font-weight: 700;
+    }
+  }
+}
