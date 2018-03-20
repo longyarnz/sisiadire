@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Nav from './Nav';
 import Banner from './Banner';
 import Import from './Import';
+import Modal from './Modal';
 import image from "../files/demo.jpg";
 
 export default class Welcome extends Component {
@@ -510,9 +511,9 @@ export default class Welcome extends Component {
         }
         {
           check &&
-          <Import name="Modal" toggle={checkout}>
+          <Modal toggle={checkout}>
             <Import name="CheckoutTab" slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={seeForm} />
-          </Import>
+          </Modal>
         }
         {
           ball &&

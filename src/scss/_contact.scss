@@ -23,8 +23,6 @@ section.contact{
   }
 
   & > span{
-    color: orange;
-    
     @media screen and (max-width: $min - 1px){
       display: none;
     }
