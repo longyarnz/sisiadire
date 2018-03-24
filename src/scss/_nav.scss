@@ -54,7 +54,7 @@ nav {
     }
 
     &>i {
-      color: orange;
+      color: $T1;
     }
     
     &.top{
@@ -84,7 +84,7 @@ nav {
       color: #fff;
 
       &:hover {
-        color: red;
+        color: #555;
       }
     }
     
@@ -104,10 +104,10 @@ nav {
   }
 
   & > span{
-    color: purple;
-    font-family: DS;
+    color: $T2;
+    font-family: DS, $font;
     font-weight: 400;
-    font-size: 160%;
+    font-size: 170%;
     z-index: 0;
     animation: swell .75s ease-in-out forwards infinite alternate;
   }

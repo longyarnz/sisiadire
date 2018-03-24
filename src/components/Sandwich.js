@@ -13,7 +13,7 @@ export default function Sandwich ({ view = true, click=()=>{}, W = 27, fill = "p
   const arrowStyle = {
     marginLeft: '-5px'
   }
-  console.log(attr);
+  
   const arrow = (
     <i className="material-icons" style={arrowStyle} onClick={click}>
       {attr === "modal" && window.innerWidth >= 600 ? 'close' : 'arrow_back'}

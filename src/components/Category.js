@@ -6,9 +6,6 @@ export default class Category extends Component {
   constructor(props) {
     super(props)
     this.click = this.click.bind(this);
-    this.state = {
-       
-    }
   }
   
   click(ctg){
@@ -16,7 +13,7 @@ export default class Category extends Component {
     if(typeof ctg === "string"){
       const pool = [];
       for (const x in items) {
-        if (items.hasOwnProperty(x) && items[x].ctg === ctg) {
+        if (items.hasOwnProperty(x) && items[x].category === ctg) {
           pool.push(items[x]);
         }
       }
@@ -30,22 +27,22 @@ export default class Category extends Component {
   charts(){
     const { items } = this.props, check = [];
     return items.map((i, o, u) => {
-      if (check.indexOf(i.ctg) > -1) return null;
-      else check.push(i.ctg);
+      if (check.indexOf(i.category) > -1) return null;
+      else check.push(i.category);
       return (
         <main key={o}>
-          <h2>{i.ctg}</h2>
+          <h2>{i.category}</h2>
           <div>
             {
               u.map((a, e) => {
-                return a.ctg === i.ctg ? (
-                  <Charts title={i.title} ctg={i.ctg} img={i.img} attr="chart" click={() => this.click(i)} tag={i.tag} key={e} />
+                return a.category === i.category ? (
+                  <Charts title={i.title} ctg={i.category} img={i.picture_file} attr="chart" click={() => this.click(i)} tag={i.tag} key={e} />
                 ) : null;
               })
             }
           </div>
           <footer>
-            <a className="view-all" onClick={() => this.click(i.ctg)}>View All</a>
+            <a className="view-all" onClick={() => this.click(i.category)}>View All</a>
             <i className="material-icons">chevron_right</i>
           </footer>
         </main>
@@ -54,6 +51,7 @@ export default class Category extends Component {
   }
 
   render() {
+    if (this.props.items.length === 0) return null;
     return (
       <section className="category">
         <h1>Àdìre Store</h1>

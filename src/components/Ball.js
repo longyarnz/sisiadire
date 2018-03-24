@@ -12,12 +12,17 @@ export default class Ball extends Component {
   }
   
   componentWillMount() {
+    // document.getElementsByTagName('html')[0].style.overflow = 'hidden';
     const {story: { x, y }} = this.props;
     this.setState({ x, y });
   }
 
+  componentWillUnmount() {
+    document.getElementsByTagName('html')[0].style.overflow = 'auto';
+  }
+
   componentWillReceiveProps({ x, y }) {
-    this.setState({ x, y });
+    if (x && y) this.setState({ x, y });
   }
   
   close(){
@@ -53,15 +58,16 @@ export default class Ball extends Component {
     else{
       children = (
         <Fragment>
-          <Import name="Nav" attr="" cart={this.props.cart} type={false} blog={true} click={this.close} />
+          <Import name="Nav" attr="scrolled" cart={this.props.cart} type={false} blog={true} click={this.close} />
           {children}
           <Import name="Footer" />
         </Fragment>
       );
     }
     setTimeout(() => {
+      document.getElementsByTagName('html')[0].style.overflow = 'hidden';
       this.setState({ x: 0, y: 0, phase: 'mounted', children });
-    }, 700);
+    }, 500);
   }
 
   get(x) {

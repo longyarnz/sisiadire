@@ -35,7 +35,7 @@ svg.sandwich {
   cursor: pointer;
   
   rect {
-    fill: orange;
+    fill: $T1;
     
     &:first-of-type {
       animation: svg-Y .3s ease-out both;

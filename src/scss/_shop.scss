@@ -4,7 +4,7 @@ section.shop{
 
   h1{
     @extend .title-caption;
-    color: purple;
+    color: $T2;
   }
 
   main{
@@ -48,7 +48,7 @@ section.shop{
           h3 {
             font-family: Roboto, $font;
             font-weight: bold;
-            color: orange;
+            color: $T1;
             font-size: 85%;
             margin: 0px;
             text-align: center;

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Nav from './Nav';
 import Banner from './Banner';
+import OrderButton from './OrderButton';
 import Import from './Import';
 import Modal from './Modal';
 import image from "../files/demo.jpg";
@@ -18,9 +19,8 @@ export default class Welcome extends Component {
       checkout: this.checkout.bind(this),
       genInfo: this.genInfo.bind(this)
     }
-
     this.state = {
-      modal: false, ball: false, scrolled: '', check: false,
+      modal: false, ball: false, scrolled: '', check: false, items: [], blog: [],
       data: { cart: [] }, info: false, customer: this.props.data.customer
     }
   }
@@ -34,7 +34,7 @@ export default class Welcome extends Component {
   handleScroll(){
     const top = document.scrollingElement.scrollTop;
     if (top > 49 && this.state.scrolled !== 'scrolled') this.setState({ scrolled: 'scrolled' });
-    else if (top < 50 && this.state.scrolled !== 'scrolled top' && this.state.scrolled === 'scrolled') {
+    else if (top === 0 && this.state.scrolled !== 'scrolled top' && this.state.scrolled === 'scrolled') {
       this.setState({ scrolled: 'scrolled top' });
       setTimeout(() => {
         this.setState({ scrolled: '' });
@@ -49,6 +49,7 @@ export default class Welcome extends Component {
   
   componentWillReceiveProps({ data }){
     this.setState({ data });
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentDidMount() {
@@ -104,360 +105,6 @@ export default class Welcome extends Component {
         image,
         author: "Ademiluyi Eniola",
         time: "2hrs"
-      },
-      {
-        title: "How to slay with Adire",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "Street credibility Vs Ingenuity",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "Learn to grace an event with grace",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "No-no Accessories with your Adire",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      }
-    ]
-  }
-
-  items(){
-    const desc = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque architecto, tempore quia quaerat facilis quae ullam dolorum.";
-    return [
-      {
-        title: "Aso Ebi",
-        ctg: "blouses",
-        price: 10000,
-        tag: "10K",
-        desc,
-        img: image
-      },
-      {
-        title: "Iro Pupa",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Ode",
-        ctg: "caps",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Vintage",
-        ctg: "male shirts",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Ebi",
-        ctg: "blouses",
-        price: 10000,
-        tag: "10K",
-        desc,
-        img: image
-      },
-      {
-        title: "Iro Pupa",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Ode",
-        ctg: "caps",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Vintage",
-        ctg: "male shirts",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Ebi",
-        ctg: "blouses",
-        price: 10000,
-        tag: "10K",
-        desc,
-        img: image
-      },
-      {
-        title: "Iro Pupa",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Ode",
-        ctg: "caps",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Vintage",
-        ctg: "male shirts",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Ebi",
-        ctg: "blouses",
-        price: 10000,
-        tag: "10K",
-        desc,
-        img: image
-      },
-      {
-        title: "Iro Pupa",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Ode",
-        ctg: "caps",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Vintage",
-        ctg: "male shirts",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
-      },
-      {
-        title: "Fila Abete",
-        ctg: "caps",
-        price: 1000,
-        tag: "1K",
-        desc,
-        img: image
-      },
-      {
-        title: "Ewu Oko",
-        ctg: "gowns",
-        price: 5000,
-        tag: "5K",
-        desc,
-        img: image
-      },
-      {
-        title: "Aso Opa",
-        ctg: "blouses",
-        price: 7000,
-        tag: "7K",
-        desc,
-        img: image
       }
     ]
   }
@@ -494,19 +141,20 @@ export default class Welcome extends Component {
   render() {
     const actions = Object.assign({}, this.props.actions, this.actions);
     const { seeBlog, seeBall, checkout, seeForm, genInfo } = actions;
-    const { data, data: {cart}, modal, check, ball, story, scrolled, info, infoPoint } = this.state;
+    const { data, data: {cart, blog, items}, modal, check, ball, story, scrolled, info, infoPoint } = this.state;
     return (
       <Fragment>
         <Nav type={true} attr="null" cart={cart.length} click={seeBlog} checkout={checkout} />
         <Banner />
-        <Import name="Category" items={this.items()} data={data} actions={actions} />
+        <OrderButton click={seeForm} />
+        {/* <Import name="Category" items={items} data={data} actions={actions} /> */}
         <Import name="About" />
         <Import name="Contact" />
         <Import name="Footer" />
         {
           modal &&
           <Import name="Modal" toggle={seeBlog}>
-            <Import name="MenuTab" slabs={this.blog()} showBall={seeBall} />
+            <Import name="MenuTab" slabs={blog} showBall={seeBall} />
           </Import>
         }
         {
@@ -521,12 +169,12 @@ export default class Welcome extends Component {
         }
         { info &&
           <Import name="Ball" toggle={seeForm} cart={cart.length} story={infoPoint}>
-            <Import name="Form" upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
+            <Import name="OrderForm" upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
           </Import> 
         }
         {
           scrolled !== '' &&
-          <Import name="ScrolledNav" attr={scrolled} cart={cart.length} click={seeBlog} checkout={checkout} />
+          <Import name="ScrolledNav" attr={scrolled} cart={cart.length} click={seeBlog} checkout={checkout} type={true} />
         }
       </Fragment>
     )

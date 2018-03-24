@@ -1,18 +1,23 @@
 main.order-received-tab{
   padding: 0px 20px 20px;
   min-height: 70%;
+  margin-top: 80px;
 
   & > a{
     border: none;
     box-shadow: none;
     outline: none;
-    color: orange;
+    color: $T1;
     margin: 20px 0px 0px;
     font-weight: 700;
     font-size: 85%;
     font-family: $font;
     text-decoration: none;
     display: inline-block;
+  }
+
+  & > h4{
+    color: $T1;
   }
 
   & > h5{
@@ -35,7 +40,7 @@ main.order-received-tab{
 
         h5{
           background: transparent;
-          margin: 3px 0px;
+          margin: 3px 5px 3px 0px;
           font-size: 100%;
           color: #000;
         }
@@ -52,12 +57,43 @@ main.order-received-tab{
       }
 
       &:nth-of-type(even) {
-        background-color: #fcfcfc;
+        background-color: #fff;
       }
       
       &:nth-of-type(odd) {
         background-color: #faffbd;
       }
+
+      &.order-first-row{
+        flex-direction: column;
+        padding: 0px;
+        background-color: #fff;
+
+        & > span{
+          padding: 0px 10px;
+
+          &:first-of-type{
+            margin-right: auto;
+            display: inline-block;
+            padding: 0px;
+
+            h5{
+              margin: 1.67em 0px;
+            }
+          } 
+
+          &:last-of-type {
+            line-height: 1.8;
+            background-color: #faffbd;
+            border-radius: 5px;
+            padding-bottom: 10px;
+          }
+        } 
+      }
     }
+  }
+
+  @media screen and (min-width: $min) {
+    margin-top: 0px;
   }
 }

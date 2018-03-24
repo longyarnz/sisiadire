@@ -9,7 +9,7 @@ section.about{
 
   & > h1 {
     @extend .title-caption;
-    color: purple;
+    color: $T2;
   }
   
   & > main{
@@ -35,7 +35,7 @@ section.about{
         margin: 10px auto 40px;
         border: 1px solid #fff;
         border-radius: 10px;
-        background-color: purple;
+        background-color: $T2;
 
         @media screen and (min-width: $min) {
           width: 100%;

@@ -1,7 +1,6 @@
 html, body {
   transition: all .5s ease-in;
   @media screen and (min-width: $min) {
-    overflow-x: hidden;
     margin: auto;
   }
   
@@ -11,9 +10,5 @@ html, body {
       padding: 10px;
       margin: auto;
     }
-  }
-
-  div#soil{
-    z-index: -1;
   }
 }

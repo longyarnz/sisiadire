@@ -23,7 +23,7 @@ export default ({ type, id, src = "#" }) => {
   }
   return (
     <main>
-      <a href={src}>
+      <a href={src} target="_blank">
         <i className={icon} />
       </a>
     </main>

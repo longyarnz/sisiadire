@@ -47,7 +47,7 @@ export default class Caption extends Component{
           <h2>{item.title}</h2>
           <span>₦{cost}</span>
         </header>
-        <p>{item.desc}</p>
+        <p>{item.description}</p>
         <footer className="caption">
           <Button ext={x} goog={`remove`} click={this.subtract} />
           <input type="text" value={`${quantity}`} disabled />

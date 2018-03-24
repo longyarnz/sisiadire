@@ -34,14 +34,14 @@ section.item{
         h2{
           margin: 0px;
           color: #333;
-          font-size: 130%;
+          font-size: 100%;
           text-transform: uppercase;
-          font-family: DS, $font;
+          font-family: $font;
         } 
         
         span{
-          color: orange;
-          font-size: 110%;
+          color: $T1;
+          font-size: 100%;
         }
       }
 
@@ -59,9 +59,9 @@ section.item{
         
         input{
           padding: 5px;
-          color: orange;
+          color: $T1;
           border: none;
-          border-bottom: 3px solid orange;
+          border-bottom: 3px solid $T1;
           box-shadow: none;
           text-align: center;
           font-weight: 700;
@@ -76,7 +76,7 @@ section.item{
           padding: 5px;
 
           i.active{
-            color: orange;
+            color: $T1;
           }
 
           &:focus{

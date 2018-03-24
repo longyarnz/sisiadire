@@ -1,6 +1,6 @@
 button.checkout-button {
   width: 58px;
-  border: 1px solid orange;
+  border: 1px solid $T1;
   padding: 0px 0px 0px 2px;
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,7 @@ button.checkout-button {
   
   & > span{
     min-width: 27px;
-    background-color: orange;
+    background-color: $T1;
     color: #fff;
     padding: 4px 6px;
     height: 24px;

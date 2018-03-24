@@ -7,7 +7,11 @@ export default class Modal extends Component {
     this.e = [];
     this.close = this.close.bind(this);
     this.get = this.get.bind(this);
-    this.state = { confirmed: false, notReady: false }
+    const child = Object.assign({}, this.props.children);
+    const char = Object.assign({}, child.props);
+    char.closeModal = this.close;
+    child.props = char;
+    this.state = { confirmed: false, notReady: false, child }
   }
 
   componentWillMount(){
@@ -39,7 +43,7 @@ export default class Modal extends Component {
       <section ref={this.get} className="modal">
         <Nav type={false} attr="modal" click={this.close} />
         <div className={this.state.direction} ref={this.get}>
-          {this.props.children}
+          {this.state.child}
         </div>
       </section>
     );

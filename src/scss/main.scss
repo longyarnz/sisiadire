@@ -1,5 +1,6 @@
 @import "_var.scss";
 @import "_styles.scss";
+@import "_svg-loading-bar.scss";
 @import "_font.scss";
 @import "_index.scss";
 @import "_footer.scss";
@@ -7,13 +8,14 @@
 @import "_modal.scss";
 @import "_ball.scss";
 @import "_info-form.scss";
+@import "_order-form.scss";
 @import "_order-received-tab.scss";
 @import "_banner.scss";
 @import "_contact.scss";
-@import "_item.scss";
-@import "_category.scss";
+// @import "_item.scss";
+// @import "_category.scss";
 @import "_about.scss";
-@import "_shop.scss";
+// @import "_shop.scss";
 @import "_error.scss";
 @import "_menutab.scss";
 @import "_checkout-tab.scss";
@@ -23,3 +25,4 @@
 @import "_cart-button.scss";
 @import "_checkout-button.scss";
 @import "_over-button.scss";
+@import "_order-button.scss";

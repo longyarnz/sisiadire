@@ -1,0 +1,39 @@
+div.order-button{
+  margin: 0px 20px 10px;
+  padding: 5px;
+  display: flex;
+  width: calc(100% - 40px);
+  justify-content: center;
+  
+  button{
+    box-shadow: 0px 10px 2px -5px rgba(0, 0, 0, 0.2),
+    0px 5px 8px rgba(0, 0, 0, 0.3),
+    0px 0px 4px rgba(0, 0, 0, 0.1);
+    @extend .shadow;
+    margin: auto;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: 200%;
+    font-family: Montserrat, $font;
+    font-weight: 700;
+    color: $T2;
+    padding: 0px 10px;
+    transition: all .3s ease-in;
+
+    &:active{
+      @media screen and (max-width: $min - 1px) {
+        box-shadow: 0px 4px 2px -3px rgba(0, 0, 0, 0.2), 0px 2px 8px rgba(0, 0, 0, 0.3), 0px 0px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    i{
+      color: $T1;
+    }
+  }
+  
+  @media screen and (min-width: $min) {
+    margin: 0px 10px 10px;
+    width: calc(100% - 20px);
+  }
+}

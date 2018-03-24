@@ -18,15 +18,14 @@ export default class Item extends Component{
     this.genInvoice = this.genInvoice.bind(this);
     this.updatePrice = this.updatePrice.bind(this);
     this.state = {
-      modal: false, cost: this.props.i.price, quantity: 1, 
-      title: this.props.i.title, price: this.props.i.price,
+      modal: false, cost: this.props.i.price, quantity: 1, form: false,
+      title: this.props.i.title, price: this.props.i.price, i: this.props.i,
       checkout: false, cart: [], info: false, customer: this.props.data.customer
     }
   } 
 
-  componentWillMount(cart){
-    console.log("mounted");
-    this.setState({ cart: this.props.cart });
+  componentWillMount(){
+    this.setState({ cart: this.props.actions.cart() });
   }
 
   updateCart(cart) {
@@ -34,7 +33,10 @@ export default class Item extends Component{
   }
 
   addToCart(item){
-    this.props.actions.add(item)
+    const cart = Object.assign([], this.props.actions.cart());
+    cart.push(item);
+    this.setState({ cart });
+    setTimeout(() => this.props.actions.add(item), 500);
   }
 
   componentDidMount() {
@@ -43,12 +45,11 @@ export default class Item extends Component{
   }
   
   genInvoice(){
-    const invoiceNumber = Math.floor((Math.random() + 1) * 100000);
-    this.setState({ invoiceNumber });
+    this.setState({ invoiceNumber: this.state.cart.length + 1 });
   }
 
   genInfo(customer) {
-    this.setState({ customer });
+    this.setState({ customer, form: true });
     this.props.actions.genInfo(customer);
   }
   
@@ -81,12 +82,12 @@ export default class Item extends Component{
     return (
       <section className="item">
         <Nav type={false} cart={cart.length} attr="scrolled" click={actions.back} checkout={this.checkout} />
-        <Figure caption={caption} img={i.img} attr="item-figure"  />
+        <Figure caption={caption} img={i.picture_file} attr="item-figure"  />
         <Footer />
         {
           modal && 
           <Import name="Modal" toggle={this.toggleCart}>
-            <Import name="InvoiceCard" item={this.state} add={this.addToCart} />
+            <Import name="InvoiceCard" item={this.state} add={this.addToCart} close={this.toggleCart} />
           </Import>
         }
         {

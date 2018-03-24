@@ -5,13 +5,27 @@ div.checkout-tab{
     
     figure.checkout-tab{
       @extend .menutab;
-      height: 70px !important;
+      min-height: 70px !important;
 
       img{
-        display: none;
+        border-radius: 0px;
+        box-shadow: none;
+        max-height: 192px;
+
+        @media screen and (min-width: $min) {
+          margin: 0px 0px 0px -5px;
+          padding: 0px;
+
+          &:hover{
+            transform: initial;
+            margin-bottom: initial;
+          }
+        }
       }
 
       & > figcaption{
+        height: auto;
+
         h5{
           display: flex;
           justify-content: space-between;
@@ -41,7 +55,7 @@ div.checkout-tab{
           
           & > button{
             border: none;
-            color: orange;
+            color: $T1;
             
             i{
               font-weight: bolder;
@@ -62,11 +76,12 @@ div.checkout-tab{
       padding: 10px;
       font-size: 85%;
       border-radius: 5px;
+      cursor: pointer;
       text-transform: uppercase;
       box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14),
       0 1px 5px 0 rgba(0, 0, 0, 0.12);
-      color: orange;
+      color: $T1;
       font-weight: 700;
     }
   }

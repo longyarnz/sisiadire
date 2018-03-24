@@ -28,7 +28,7 @@
     left: calc(50% - 10%);
     height: 4px;
     bottom: 15px;
-    background-color: orange;
+    background-color: $T1;
     position: absolute;
   }
 }
@@ -42,6 +42,7 @@
 
   &:hover{
     transform: scale(1.01, 1.01);
+    margin-bottom: 5px;
 
     @media screen and (min-width: $min) {
       box-shadow: 0px 10px 2px -5px rgba(0, 0, 0, 0.2), 0px 5px 8px rgba(0, 0, 0, 0.3), 0px 0px 4px rgba(0, 0, 0, 0.1);

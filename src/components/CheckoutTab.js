@@ -46,7 +46,7 @@ export default class CheckoutTab extends Component {
                   <i className="material-icons" onClick={click}>close</i>
                 </h5>
                 <div className="checkout-tab">
-                  <span>#{i.invoiceNumber}</span>
+                  {/* <span>#{i.invoiceNumber}</span> */}
                   <Button ext={x} goog={`remove`} attr="checkout-tab-button" click={() => this.subtract(o)} />
                   <span>{i.quantity}</span>
                   <Button ext={y} goog={`add`} attr="checkout-tab-button" click={() => this.add(o)} />
@@ -54,7 +54,7 @@ export default class CheckoutTab extends Component {
                 </div>
               </Fragment>
             );
-            return <Figure attr="checkout-tab" alt="Blog photo" caption={caption} key={key * o} />
+            return <Figure attr="checkout-tab" img={i.picture_file} alt="Blog photo" caption={caption} key={key * o} />
           })
         }
         <Button text="Checkout" click={this.seeInfo} />
@@ -84,9 +84,9 @@ export default class CheckoutTab extends Component {
     return (
       <div className="menutab checkout-tab">
         <header className="menutab checkout-tab"><h4>Your Cart</h4></header>
-        <main className={`menutab checkout-tab ${!emptyCart && 'empty'}`}>{
-          emptyCart > 0 ? this.tabs() : <OverButton icon="add_shopping_cart" />
-        }</main>
+        <main className={`menutab checkout-tab ${!emptyCart && 'empty'}`} key={Math.floor(Math.random() * 100)}>
+          {emptyCart > 0 ? this.tabs() : <OverButton icon="add_shopping_cart" />}
+        </main>
       </div>
     )
   }

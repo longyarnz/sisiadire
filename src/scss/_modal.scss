@@ -41,25 +41,23 @@ section.modal{
   transition: all .5s ease-in;
 
   & > div{
-    background-color: orange;
+    background-color: $T1;
     margin: auto;
     width: 100%;
     height: 100%;
     transform: scale(.8, .8);
     overflow-x: hidden;
     border-radius: 5px;
-    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.5),
-    0px 5px 8px rgba(0, 0, 0, 0.7),
-    0px 0px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 16px 2px -6px rgba(0, 0, 0, 0.2),
+    0px 5px 8px rgba(0, 0, 0, 0.3),
+    0px 0px 16px rgba(0, 0, 0, 0.3);
     animation: smooth-entry .5s ease-in-out forwards;
     
     @media screen and (min-width: $min){
-      // transform: scale(.85, .85);
       animation: smooth-entry-lg .5s ease-in-out forwards;
     }
     
     &.reverse {
-      // transform: scale(.8, .8);
       animation: smooth-entry .65s ease-out reverse both;
     }
     

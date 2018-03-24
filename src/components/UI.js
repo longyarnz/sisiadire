@@ -10,18 +10,36 @@ export default class UI extends Component {
       add: this.addToCart.bind(this),
       remove: this.removeFromCart.bind(this),
       update: this.updateCart.bind(this),
-      genInfo: this.genInfo.bind(this)
+      genInfo: this.genInfo.bind(this),
+      cart: this.getCart.bind(this)
     }
 
     this.state = {
       view: null, customer: {
-        _name: "", phone: "", email: ""
-      }, prev: [], cart: []
+        _name: "", phone: "", email: "", order: "",
+      }, prev: [], cart: [], items: [], blog: []
     }
   }
 
+  getCart(){
+    return this.state.cart;
+  }  
+
   componentWillMount(){
-    this.setState({ view: <Import name="Welcome" actions={this.actions} data={this.state} /> })
+    fetch('http://sisiadire.io:8080/req', {
+      method: 'POST',
+      body: JSON.stringify({
+        type: 'initialize',
+        params: ""
+      })
+    })
+      .then(res => res.json())
+      .then(({blog, items}) => this.setState({ blog, items }))
+      .then(i => {
+        const view = <Import name="Welcome" actions={this.actions} data={this.state} items={this.state.items} />;
+        this.setState({ view });
+      })
+      .catch(err => console.log(err));
   }
 
   genInfo(customer) {
@@ -35,7 +53,6 @@ export default class UI extends Component {
   }
 
   addToCart(item){
-    console.log(1);
     if(!item) {
       this.setState({ cart: [] });
       return;

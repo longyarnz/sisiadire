@@ -19,7 +19,7 @@ section.category {
 
   & > h1 {
     @extend .title-caption;
-    color: purple;
+    color: $T2;
     background-color: transparent;
   }
 
@@ -115,7 +115,7 @@ section.category {
           & > h3{
             font-family: $font;
             font-weight: bold;
-            color: orange;
+            color: $T1;
             font-size: 80%;
             margin: 0px;
             margin-top: -2px;
@@ -154,7 +154,7 @@ section.category {
         font-size: 85%;
         background-color: #fff;
         padding: 5px 10px;
-        color: orange;
+        color: $T1;
         font-weight: 400;
         font-family: $font;
         border-radius: 2px;

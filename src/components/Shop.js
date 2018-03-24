@@ -73,7 +73,7 @@ export default class Shop extends Component {
   showOne(i, o){
     return(
       <div key={o}>
-        <Charts title={i.title} ctg={i.ctg} img={i.img} i={i} click={() => this.clicke(i)} attr="chart" tag={i.price} />
+        <Charts title={i.title} ctg={i.ctg} img={i.picture_file} i={i} click={() => this.clicke(i)} attr="chart" tag={i.price} />
       </div>
     )
   }
@@ -106,7 +106,7 @@ export default class Shop extends Component {
     const { cart, ball, info, infoPoint } = this.state;
     return (
       <Fragment>
-        <Nav type={false} cart={cart.length} click={actions.back} blog={false} checkout={this.checkout} />
+        <Nav type={false} cart={cart.length} click={actions.back} blog={false} checkout={this.checkout} attr="scrolled" />
         <section className="shop">
           <h1>{this.props.ctg}</h1>
           <main>
@@ -114,10 +114,6 @@ export default class Shop extends Component {
           </main>
         </section>    
         <Footer />
-        {
-          this.state.scrolled !== '' &&
-          <Import name="ScrolledNav" type={false} attr={this.state.scrolled} blog={false} cart={cart.length} click={actions.back} />
-        }
         {
           this.state.checkout &&
           <Import name="Modal" toggle={this.checkout}>

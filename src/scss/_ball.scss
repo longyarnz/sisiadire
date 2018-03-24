@@ -74,6 +74,7 @@ section.ball {
 
     @media screen and (min-width: $min) {
       width: 100%;
+      height: 100%;
       overflow-x: hidden;
       margin: auto;
       left: 0px;
@@ -130,7 +131,7 @@ section.ball {
       }
 
       h5{
-        color: orange;
+        color: $T1;
         font-size: 95%;
       }
 

@@ -17,8 +17,9 @@ export default class InvoiceCard extends Component {
     this.setState({ icon: 'check_circle', confirmed: true, print: 'print', alert: `+ ${this.props.item.title}`, clicked: true });
     this.e[1].classList.add('click');
     this.e[0].classList.add('click');
-    const { cost, quantity, invoiceNumber, title, price } = this.props.item;
-    this.props.add({ cost, quantity, invoiceNumber, title, price });
+    const { cost, quantity, invoiceNumber, title, price, i : {picture_file} } = this.props.item;
+    this.props.add({ cost, quantity, invoiceNumber, title, price, picture_file });
+    this.props.closeModal();
   }
 
   get(x) {

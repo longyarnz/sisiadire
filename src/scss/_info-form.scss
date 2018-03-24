@@ -1,7 +1,7 @@
-form{
+form.info-form{
   position: relative;
   padding: 0px 20px;
-  margin-bottom: 50px;
+  margin: 80px 0px 30px;
   transition: all .5s ease-in;
   
   h3{
@@ -16,7 +16,7 @@ form{
     padding: 5px;
     color: #555;
     border: none;
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid $T1;
     box-shadow: none;
     font-size: 90%;
     margin-bottom: 40px;
@@ -26,8 +26,8 @@ form{
     
     &:focus{
       outline: none;
-      border-bottom-color: purple;
-      color: purple;
+      border-bottom-color: $T2;
+      color: $T2;
       font-weight: 700;
     }
     
@@ -39,15 +39,22 @@ form{
   button{
     font-family: $font;
     border: none;
-    color: orange;
+    color: $T1;
     font-weight: 700;
     text-transform: uppercase;
     padding: 10px 0px 0px;
+    height: 26px;
+    overflow: hidden;
+    transition: all .5s ease-out;
 
     &:focus, &:active{
       outline: none;
       border: none;
-      color: darken(purple, 0%);
+      color: darken($T2, 0%);
+    }
+
+    &.freezed{
+      height: 0px;
     }
   }
 }

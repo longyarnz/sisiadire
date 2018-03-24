@@ -13,7 +13,7 @@ header.invoice-card {
     padding: 2px 0px;
     padding-right: 10px;
     font-size: 120%;
-    color: orange;
+    color: $T1;
 
     span{
       color: #555;
@@ -28,7 +28,7 @@ header.invoice-card {
     color: #000;
 
     &:active, &:focus, &:hover{
-      color: orange;
+      color: $T1;
     }
   }
 }
@@ -59,8 +59,8 @@ div.invoice-card {
     font-weight: 700;
     
     &:nth-of-type(2) {
-      height: 42.5%;
-      background-color: orange;
+      height: 45%;
+      background-color: $T1;
       color: #fff;
       font-size: 150%;
       display: flex;
@@ -69,6 +69,7 @@ div.invoice-card {
       text-transform: uppercase;
       margin: 0px;
       z-index: 5;
+      cursor: pointer;
       transition: all .25s ease;
     }
 
