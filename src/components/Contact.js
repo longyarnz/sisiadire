@@ -2,10 +2,10 @@ import React from 'react';
 import Icon from './Icon';
 
 export default function Contact() {
-  const phone = '09095522828';
+  const phone = '2349095522828';
   return (
     <section className="contact">
-      <h1>SÀ</h1>
+      <h1>SisíÀdìre</h1>
       <p>
         <span>SisíÀdìre</span> is always ready to give you the spice that brings out the credibility in your image.
         We believe <span>ingenuity</span> comes from embracing the inner-self, our roots, our heritage, our culture.<br />
@@ -18,7 +18,7 @@ export default function Contact() {
         Call us on: <a href={`tel:${phone}`}>{phone}</a>
       </p>
       <span>Social Media: </span><div>
-        <Icon type="whatsapp" src={`https://api.whatsapp.com/send?phone=${phone}`} />
+        <Icon type="whatsapp" src={`https://api.whatsapp.com/send?phone=${phone}&text=I%20want%20to%20make%20an%20order%20SisíÀdìre`} />
         <Icon type="facebook" src="https://web.facebook.com/Sisiadire_designs-1737221739901322" />
         <Icon type="twitter" />
         <Icon type="instagram" src="https://www.instagram.com/sisiadire_designs/" />

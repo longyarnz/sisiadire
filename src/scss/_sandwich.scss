@@ -50,4 +50,8 @@ svg.sandwich {
       transform-origin: 0% 100%;
     }
   }
+
+  &:focus{
+    outline: none;
+  }
 }

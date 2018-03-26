@@ -3,8 +3,10 @@ import Nav from './Nav';
 import Banner from './Banner';
 import OrderButton from './OrderButton';
 import Import from './Import';
-import Modal from './Modal';
-import image from "../files/demo.jpg";
+import CheckoutTab from './CheckoutTab';
+import MenuTab from './MenuTab';
+import ScrolledNav from './ScrolledNav';
+// import image from "../files/demo.jpg";
 
 export default class Welcome extends Component {
   constructor(props) {
@@ -61,53 +63,53 @@ export default class Welcome extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   
-  blog(){
-    const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, ducimus ab corrupti amet nihil porro esse. Ipsam vel commodi ipsa consectetur est doloribus nemo. Cumque blanditiis maiores incidunt facilis neque.";
-    return [
-      {
-        title: "Where art thou oh fashionista!!!",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "How to slay with Adire",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "Street credibility Vs Ingenuity",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "Learn to grace an event with grace",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "No-no Accessories with your Adire",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      },
-      {
-        title: "Where art thou oh fashionista!!!",
-        text,
-        image,
-        author: "Ademiluyi Eniola",
-        time: "2hrs"
-      }
-    ]
-  }
+  // blog(){
+  //   const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, ducimus ab corrupti amet nihil porro esse. Ipsam vel commodi ipsa consectetur est doloribus nemo. Cumque blanditiis maiores incidunt facilis neque.";
+  //   return [
+  //     {
+  //       title: "Where art thou oh fashionista!!!",
+  //       text,
+  //       image,
+  //       author: "Ademiluyi Eniola",
+  //       time: "2hrs"
+  //     },
+  //     {
+  //       title: "How to slay with Adire",
+  //       text,
+  //       image,
+  //       author: "Ademiluyi Eniola",
+  //       time: "2hrs"
+  //     },
+  //     {
+  //       title: "Street credibility Vs Ingenuity",
+  //       text,
+  //       image,
+  //       author: "Ademiluyi Eniola",
+  //       time: "2hrs"
+  //     },
+  //     {
+  //       title: "Learn to grace an event with grace",
+  //       text,
+  //       image,
+  //       author: "Ademiluyi Eniola",
+  //       time: "2hrs"
+  //     },
+  //     {
+  //       title: "No-no Accessories with your Adire",
+  //       text,
+  //       image,
+  //       author: "Ademiluyi Eniola",
+  //       time: "2hrs"
+  //     },
+  //     {
+  //       title: "Where art thou oh fashionista!!!",
+  //       text,
+  //       image,
+  //       author: "Ademiluyi Eniola",
+  //       time: "2hrs"
+  //     }
+  //   ]
+  // }
 
   genInfo(customer){
     const { view } = this.props.data;
@@ -140,7 +142,9 @@ export default class Welcome extends Component {
   
   render() {
     const actions = Object.assign({}, this.props.actions, this.actions);
+    // eslint-disable-next-line
     const { seeBlog, seeBall, checkout, seeForm, genInfo } = actions;
+    // eslint-disable-next-line
     const { data, data: {cart, blog, items}, modal, check, ball, story, scrolled, info, infoPoint } = this.state;
     return (
       <Fragment>
@@ -154,14 +158,14 @@ export default class Welcome extends Component {
         {
           modal &&
           <Import name="Modal" toggle={seeBlog}>
-            <Import name="MenuTab" slabs={blog} showBall={seeBall} />
+            <MenuTab slabs={blog} showBall={seeBall} />
           </Import>
         }
         {
           check &&
-          <Modal toggle={checkout}>
-            <Import name="CheckoutTab" slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={seeForm} />
-          </Modal>
+          <Import name="Modal" toggle={checkout}>
+            <CheckoutTab slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={seeForm} />
+          </Import>
         }
         {
           ball &&
@@ -174,7 +178,7 @@ export default class Welcome extends Component {
         }
         {
           scrolled !== '' &&
-          <Import name="ScrolledNav" attr={scrolled} cart={cart.length} click={seeBlog} checkout={checkout} type={true} />
+          <ScrolledNav attr={scrolled} cart={cart.length} click={seeBlog} checkout={checkout} type={true} />
         }
       </Fragment>
     )
