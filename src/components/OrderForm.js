@@ -176,13 +176,14 @@ export default class OrderForm extends Component {
       lineHeight: '1.8',
       backgroundColor: '#faffbd',
       borderRadius: '5px',
-      padding: '10px'
+      padding: '10px',
+      width: '100%'
     }
     return (
       <div>
-        <div className="order-first-row" style={[mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivFirstOfType, mainStyleDivlastOfType, mainStyleDivOrderFirstRow]}>
-          <span style={[mainStyleDivSpan, mainStyleDivOrderFirstRowSpan, mainStyleDivOrderFirstRowSpanFirstOfType]}><h5 style={[mainStyleDivSpanH5, mainStyleDivOrderFirstRowSpanFirstOfTypeH5]}>Order Summary</h5></span>
-          <span style={[mainStyleDivSpan, mainStyleDivOrderFirstRowSpan, mainStyleDivOrderFirstRowSpanLastOfType]}>{this.state.customer.order}</span>
+        <div className="order-first-row" style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivFirstOfType, mainStyleDivlastOfType, mainStyleDivOrderFirstRow)}>
+          <span style={Object.assign({}, mainStyleDivSpan, mainStyleDivOrderFirstRowSpan, mainStyleDivOrderFirstRowSpanFirstOfType)}><h5 style={Object.assign({}, mainStyleDivSpanH5, mainStyleDivOrderFirstRowSpanFirstOfTypeH5)}>Order Summary</h5></span>
+          <span style={Object.assign({}, mainStyleDivSpan, mainStyleDivOrderFirstRowSpan, mainStyleDivOrderFirstRowSpanLastOfType)}>{this.state.customer.order}</span>
         </div>
       </div>
     )
@@ -232,15 +233,15 @@ export default class OrderForm extends Component {
     }
     return (
       <div>
-        <div style={[mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivFirstOfType]}>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivFirstOfType)}>
           <span style={mainStyleDivSpan}>Name:</span>
           <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>{_name}</h5></span>
         </div>
-        <div style={[mainStyleDiv, mainStyleDivNthOfTypeOdd]}>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeOdd)}>
           <span style={mainStyleDivSpan}>Email:</span>
           <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>{email}</h5></span>
         </div>
-        <div style={[mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivlastOfType]}>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivlastOfType)}>
           <span style={mainStyleDivSpan}>Phone:</span>
           <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>{phone}</h5></span>
         </div>

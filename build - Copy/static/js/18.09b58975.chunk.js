@@ -1,0 +1,2 @@
+webpackJsonp([18],{64:function(t,e,n){"use strict";function s(t){var e=t.toString(),n=e.length,s=Number(t);return 1===n&&0!==s?-1:(2!==n||/^(0)(8|7|9)/.test(t))&&(3!==n||/^0(8|(7|9)(?!1))(0|1)/.test(t))&&(4!==n||/^0(8|(7|9)(?!1))(0(?!0)|1)[0-9]/.test(t))?n>4&&n<=11&&!/^0(8|(7|9)(?!1))(0(?!0)|1)[0-9]/.test(t)?-1:n>11?t.slice(0,11):t:-1}Object.defineProperty(e,"__esModule",{value:!0}),e.default=s}});
+//# sourceMappingURL=18.09b58975.chunk.js.map
