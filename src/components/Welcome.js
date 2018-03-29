@@ -6,7 +6,7 @@ import Import from './Import';
 import CheckoutTab from './CheckoutTab';
 import MenuTab from './MenuTab';
 import ScrolledNav from './ScrolledNav';
-// import image from "../files/demo.jpg";
+import image from "../files/demo.jpg";
 
 export default class Welcome extends Component {
   constructor(props) {
@@ -150,8 +150,8 @@ export default class Welcome extends Component {
       <Fragment>
         <Nav type={true} attr="null" cart={cart.length} click={seeBlog} checkout={checkout} />
         <Banner />
-        <OrderButton click={seeForm} />
-        {/* <Import name="Category" items={items} data={data} actions={actions} /> */}
+        {/* <OrderButton click={seeForm} /> */}
+        <Import name="Category" items={items} data={data} actions={actions} />
         <Import name="About" />
         <Import name="Contact" />
         <Import name="Footer" />

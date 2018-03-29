@@ -26,20 +26,20 @@ export default class UI extends Component {
   }  
 
   componentWillMount(){
-    // fetch(process.env.REACT_APP_API, {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     type: 'initialize',
-    //     params: ""
-    //   })
-    // })
-    //   .then(res => res.json())
-    //   .then(({blog, items}) => this.setState({ blog, items }))
-    //   .then(i => {
-    //     const view = <Import name="Welcome" actions={this.actions} data={this.state} items={this.state.items} />;
-    //     this.setState({ view });
-    //   })
-    //   .catch(err => console.log(err));
+    fetch(process.env.REACT_APP_API, {
+      method: 'POST',
+      body: JSON.stringify({
+        type: 'initialize',
+        params: ""
+      })
+    })
+      .then(res => res.json())
+      .then(({blog, items}) => this.setState({ blog, items }))
+      .then(i => {
+        const view = <Import name="Welcome" actions={this.actions} data={this.state} items={this.state.items} />;
+        this.setState({ view });
+      })
+      .catch(err => console.log(err));
     const view = <Import name="Welcome" actions={this.actions} data={this.state} items={[]} />;
     this.setState({ view });
   }

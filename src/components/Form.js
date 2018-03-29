@@ -20,7 +20,7 @@ export default class Form extends Component {
   }
 
   componentWillMount() {
-    fetch('http://sisiadire.io:8080/req', {
+    fetch(process.env.REACT_APP_API, {
       method: 'POST',
       body: JSON.stringify({
         type: 'getInvoiceNumber',
