@@ -35,7 +35,7 @@ section.about{
         margin: 10px auto 40px;
         border: 1px solid #fff;
         border-radius: 10px;
-        background-color: $T2;
+        background-color: $T1;
 
         @media screen and (min-width: $min) {
           width: 100%;
@@ -44,7 +44,7 @@ section.about{
       }
 
       & > figcaption{
-        color: #555;
+        color: $T2;
         text-align: center;
       }
 

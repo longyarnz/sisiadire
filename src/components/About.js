@@ -6,7 +6,7 @@ export default function About() {
     title: "Sisí Àdìre is...",
     figures: [{
       title: "camera",
-      phrase: "FASHIONABLE",
+      phrase: "SHARP",
     },{
       phrase: "PROFESSIONAL",
       title: "person_add"

@@ -38,6 +38,16 @@ nav {
     color: #fff;
   }
 
+  img{
+    width: 30%;
+    height: 145%;
+    border-radius: 3px;
+    
+    @media screen and (min-width: $min) {
+      width: 17%;
+    }
+  }
+
   &.scrolled{
     position: fixed;
     z-index: 1;
