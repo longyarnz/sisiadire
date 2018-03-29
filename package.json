@@ -1,6 +1,7 @@
 {
   "name": "sisi_adire",
   "version": "1.0.0",
+  "author": "Longyarnz <longyarnz@gmail.com>",
   "private": true,
   "homepage": "https://longyarnz.github.io/SisiAdire/",
   "dependencies": {
