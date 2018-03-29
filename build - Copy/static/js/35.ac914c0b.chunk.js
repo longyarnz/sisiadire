@@ -1,2 +1,0 @@
-webpackJsonp([35],{59:function(e,t,a){"use strict";function c(e){var t=e.ext,a=e.text,c=e.goog,n=e.icon,o=e.attr,l=e.click,r=void 0===l?function(){}:l;return i.a.createElement("button",{onClick:r,className:o},a,n&&i.a.createElement("i",{className:n}),c&&i.a.createElement("i",{className:"material-icons "+t},c))}Object.defineProperty(t,"__esModule",{value:!0}),t.default=c;var n=a(5),i=a.n(n)}});
-//# sourceMappingURL=35.ac914c0b.chunk.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([32],{56:function(e,a,t){"use strict";function n(e){var a=e.badge,t=e.click;return l.a.createElement("button",{className:"checkout-button",onClick:t},l.a.createElement("i",{className:"material-icons"},"add_shopping_cart"),l.a.createElement("span",null,a))}Object.defineProperty(a,"__esModule",{value:!0}),a.default=n;var c=t(5),l=t.n(c)}});
-//# sourceMappingURL=32.dfc25396.chunk.js.map

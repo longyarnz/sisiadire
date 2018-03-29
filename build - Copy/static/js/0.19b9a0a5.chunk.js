@@ -1,2 +1,0 @@
-webpackJsonp([0],{30:function(e,n,t){"use strict";function a(e){var n=e.error,t=e.info;return c.a.createElement("section",{className:"error"},c.a.createElement("h1",null,n.name),c.a.createElement("code",null,n.message),c.a.createElement("code",null,t.componentStack))}Object.defineProperty(n,"__esModule",{value:!0}),n.default=a;var r=t(5),c=t.n(r)}});
-//# sourceMappingURL=0.19b9a0a5.chunk.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([29],{63:function(e,n,a){"use strict";function t(){return r.a.createElement("footer",{className:"all-pages"},"\xa9 ",(new Date).getUTCFullYear()," || ",r.a.createElement("span",null,"Designed By LongYarnz Inc."))}Object.defineProperty(n,"__esModule",{value:!0}),n.default=t;var l=a(5),r=a.n(l)}});
-//# sourceMappingURL=29.866e4161.chunk.js.map

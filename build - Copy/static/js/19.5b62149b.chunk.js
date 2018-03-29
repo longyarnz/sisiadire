@@ -1,2 +1,0 @@
-webpackJsonp([19],{54:function(e,r,t){"use strict";function o(e){var r=e.click,t=e.children,o=void 0===t?"Sorry, your browser does not support this technology!":t,n=e.attr;return c.a.createElement("svg",{onClick:r,className:n},o)}Object.defineProperty(r,"__esModule",{value:!0}),r.default=o;var n=t(5),c=t.n(n)}});
-//# sourceMappingURL=19.5b62149b.chunk.js.map
