@@ -107,5 +107,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://sisiadire.io:8080/"
+  "proxy": "http://sisiadire.io:8080"
 }
