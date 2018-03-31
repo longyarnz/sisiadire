@@ -88,6 +88,10 @@ nav {
     box-shadow: none;
     background-color: #999;
     animation: drop-in .4s ease-out forwards !important;
+
+    img{
+      display: none;
+    }
     
     & > i{
       background-color: transparent;

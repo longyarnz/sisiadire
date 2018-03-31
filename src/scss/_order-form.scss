@@ -1,15 +1,6 @@
 form.order-form {
-  position: relative;
-  padding: 0px 20px;
-  margin: 80px 0px 0px;
-  transition: all .5s ease-in;
-  h3 {
-    text-transform: uppercase;
-    margin-bottom: 35px;
-    font-weight: 900;
-    font-size: 105%;
-  }
-  input,
+  @extend .info-form;
+  
   textarea {
     width: calc(100% - 5px);
     padding: 5px;
@@ -34,25 +25,5 @@ form.order-form {
   }
   textarea {
     line-height: 1.8;
-  }
-  button {
-    font-family: $font;
-    border: none;
-    color: $T1;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 10px 0px 0px;
-    height: 26px;
-    overflow: hidden;
-    transition: all .5s ease-out;
-    &:focus,
-    &:active {
-      outline: none;
-      border: none;
-      color: darken($T2, 0%);
-    }
-    &.freezed {
-      height: 0px;
-    }
   }
 }

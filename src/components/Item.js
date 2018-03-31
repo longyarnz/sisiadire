@@ -4,6 +4,9 @@ import Figure from './Figure';
 import Caption from './Caption';
 import Import from './Import';
 import Footer from './Footer';
+import Modal from './Modal';
+import InvoiceCard from './InvoiceCard';
+import CheckoutTab from './CheckoutTab';
 
 export default class Item extends Component{ 
   constructor(props){
@@ -18,7 +21,7 @@ export default class Item extends Component{
     this.genInvoice = this.genInvoice.bind(this);
     this.updatePrice = this.updatePrice.bind(this);
     this.state = {
-      modal: false, cost: this.props.i.price, quantity: 1, form: false,
+      modal: false, cost: this.props.i.price, quantity: 1, form: false, shouldReload: 1,
       title: this.props.i.title, price: this.props.i.price, i: this.props.i,
       checkout: false, cart: [], info: false, customer: this.props.data.customer
     }
@@ -72,12 +75,12 @@ export default class Item extends Component{
 
   empty(){
     this.props.actions.add(false);
-    this.setState({ cart: []});
+    this.setState({ cart: [], shouldReload: 0 });
   }
 
   render(){
     const { i, actions } = this.props;
-    const { cart, modal, checkout, info, infoPoint } = this.state;
+    const { cart, modal, checkout, info, infoPoint, shouldReload } = this.state;
     const caption = <Caption item={i} attr="item-caption" toggle={this.toggleCart} click={(i, o)=>this.updatePrice(i, o)} />;
     return (
       <section className="item">
@@ -86,19 +89,19 @@ export default class Item extends Component{
         <Footer />
         {
           modal && 
-          <Import name="Modal" toggle={this.toggleCart}>
-            <Import name="InvoiceCard" item={this.state} add={this.addToCart} close={this.toggleCart} />
-          </Import>
+          <Modal toggle={this.toggleCart}>
+            <InvoiceCard item={this.state} add={this.addToCart} close={this.toggleCart} />
+          </Modal>
         }
         {
           checkout &&
-          <Import name="Modal" toggle={this.checkout}>
-            <Import name="CheckoutTab" slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={this.seeForm} />
-          </Import>
+          <Modal toggle={this.checkout} text={cart}>
+            <CheckoutTab cart={cart} actions={actions} updateItem={this.updateCart} showInfo={this.seeForm} />
+          </Modal>
         }
         {
           info &&
-          <Import name="Ball" toggle={this.seeForm} cart={cart.length} story={infoPoint}>
+          <Import name="Ball" toggle={this.seeForm} cart={cart.length} story={infoPoint} reload={shouldReload} actions={actions}>
             <Import name="Form" upload={this.genInfo} customer={this.state.customer} cart={this.state.cart} empty={this.empty} />
           </Import>
         }

@@ -13,12 +13,7 @@ export default class Import extends Component {
   async componentWillReceiveProps(props) {
     const { name } = props;
     const { default: Load } = await import(`./${name}`);
-    try {
-      Load.defaultProps = props;
-    }
-    finally {
-      this.setState(i => ({ view: <Load /> }));
-    }
+    this.setState(i => ({ view: <Load {...this.props} /> }));
   }
 
   render() {

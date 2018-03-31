@@ -79,7 +79,7 @@ section.ball {
       margin: auto;
       left: 0px;
       right: auto;
-      padding: 80px calc(50% - 300px) 0px;
+      // padding: 80px calc(50% - 300px) 0px;
     }
   }
 
@@ -151,5 +151,8 @@ section.ball {
     margin: auto;
     left: auto;
     right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

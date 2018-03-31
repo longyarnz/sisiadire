@@ -11,7 +11,7 @@ export default class UI extends Component {
       remove: this.removeFromCart.bind(this),
       update: this.updateCart.bind(this),
       genInfo: this.genInfo.bind(this),
-      cart: this.getCart.bind(this)
+      cart: this.getCart.bind(this),
     }
 
     this.state = {
@@ -79,23 +79,26 @@ export default class UI extends Component {
   }
 
   back(){
-    const { prev } = this.state;
-    const view = Object.assign({}, prev[prev.length - 1]);
-    const props = Object.assign({}, view.props);
-    Object.defineProperty(props, 'data', {value: this.state});
-    Object.defineProperty(view, 'props', {value: props});
-    prev.pop();
-    this.setState({ view, prev });
+    const { prev, items } = this.state; 
+    let view = <Import name="Welcome" actions={this.actions} data={this.state} items={items} />;
+    if(prev.length > 0) {
+      const length = prev.length - 1;
+      view = Object.assign({}, prev[length]);
+      const props = Object.assign({}, view.props);
+      Object.defineProperty(props, 'data', {value: this.state});
+      Object.defineProperty(view, 'props', {value: props});
+      prev.pop();
+    }
+    this.setState({ view: null, prev });
+    setTimeout(() => {
+      this.setState({ view });
+    }, 500);
   }
 
   componentDidMount() {
     document.getElementsByTagName('html')[0].scrollIntoView();
   }
 
-  viewLayer(props){
-    this.setState({ view: null })
-  }
-  
   render() {
     return this.state.view;
   }

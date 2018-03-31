@@ -43,7 +43,7 @@ div.menutab {
       }
 
       & > img{
-        width: 100%;
+        width: calc(100% + 10px);
         max-height: 192px;
 
         @media screen and (min-width: $min) {

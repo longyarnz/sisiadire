@@ -8,13 +8,13 @@ export default class OrderButton extends Component {
   
   handleClick(e) {
     const { clientX: x, clientY: y } = e.nativeEvent;
-    this.props.click({ x, y });
+    this.props.click({ x, y }, 'OrderForm');
   }
 
   render() {
     return (
       <div className="order-button">
-        <button onClick={this.handleClick}>ORDER <i className="material-icons under">add_shopping_cart</i> NOW</button>
+        <button onClick={this.handleClick}>CUSTOM ORDER <i className="material-icons under">add_shopping_cart</i></button>
       </div>
     )
   }

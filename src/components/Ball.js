@@ -1,5 +1,7 @@
 import React, { Fragment, Component } from 'react';
-import Import from './Import';
+import Nav from './Nav';
+import Footer from './Footer';
+import Figure from './Figure';
 export default class Ball extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +14,6 @@ export default class Ball extends Component {
   }
   
   componentWillMount() {
-    // document.getElementsByTagName('html')[0].style.overflow = 'hidden';
     const {story: { x, y }} = this.props;
     this.setState({ x, y });
   }
@@ -26,14 +27,17 @@ export default class Ball extends Component {
   }
   
   close(){
-    this.setState({ phase: 'reverse' });
-    this.e[0].style.animation = 'none';
-    setTimeout(() => {
-      this.e[0].style.animation = '';
-    }, 50);
-    setTimeout(() => {
-      this.props.toggle();
-    }, 700);
+    if(this.props.reload === 0) this.props.actions.back();
+    else{
+      this.setState({ phase: 'reverse' });
+      this.e[0].style.animation = 'none';
+      setTimeout(() => {
+        this.e[0].style.animation = '';
+      }, 50);
+      setTimeout(() => {
+        this.props.toggle();
+      }, 700);
+    }
   }
 
   componentDidMount() {
@@ -49,18 +53,18 @@ export default class Ball extends Component {
       );
       children = (
         <Fragment>
-          <Import name="Nav" attr="scrolled" cart={this.props.cart} type={false} blog={true} click={this.close} />
-          <Import name="Figure" caption={caption} img={i.image} attr="item-figure" />
-          <Import name="Footer" />
+          <Nav attr="scrolled" cart={this.props.cart} type={false} blog={true} click={this.close} />
+          <Figure caption={caption} img={i.image} attr="item-figure" />
+          <Footer />
         </Fragment>
       );
     }
     else{
       children = (
         <Fragment>
-          <Import name="Nav" attr="scrolled" cart={this.props.cart} type={false} blog={true} click={this.close} />
+          <Nav attr="scrolled" cart={this.props.cart} type={false} blog={true} click={this.close} />
           {children}
-          <Import name="Footer" />
+          <Footer />
         </Fragment>
       );
     }

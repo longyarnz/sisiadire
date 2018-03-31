@@ -37,28 +37,26 @@ export default class Form extends Component {
     e.preventDefault();
     e.persist();
     this.setState({ submit: true });
-    let form = false, mail = false;
+    this.submitMail();
+    let form = false;
     do{
-      mail = await this.submitMail();
       form = await this.submitForm();
-      console.log(mail, form);
     }
     while(!form)
-    if(form) setTimeout(() => {
+    if(form) {
       this.setState({ submit: true });
       this.props.empty(false);
-      this.props.upload({ _name: "", email: "", phone: "" });
-    }, 30000);
+      this.props.upload({ _name: "", email: "", phone: "", order: "" });
+    };
   }
 
   async submitMail(){
     let record = this.done(), result;
     record = renderToString(record).replace(/<!-- -->/g, "");
-    result = await fetch('http://sisiadire.io:8080/mail', {
+    result = await fetch(process.env.REACT_APP_MAIL, {
       method: 'POST',
       body: JSON.stringify({ record })
     }).then(res => res.json());
-    console.log(result);
     return result;
   }
 
@@ -70,16 +68,17 @@ export default class Form extends Component {
       return null;
     });
     products = products.slice(0, products.length - 2);
-    const params = { invoice, products, cost, ...this.state.customer };
+    const customer = Object.assign({}, this.state.customer);
+    delete customer['order'];
+    const params = { invoice, products, cost, ...customer };
     params['name'] = params['_name'];
     delete params['_name'];
-    const result = await fetch('http://sisiadire.io:8080/req', {
+    const result = await fetch(process.env.REACT_APP_API, {
       method: 'POST',
       body: JSON.stringify({
         type: 'addInvoice', params
       })
     }).then(res => res.json());
-    console.log(result);
     return result[0]['invoice'] === invoice;
   }
 
@@ -111,8 +110,40 @@ export default class Form extends Component {
     }
   }
 
-  rows(){
+  rows() {
+    const font = 'Roboto,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Cantarell,Open Sans,"Helvetica Neue",sans-serif';
     let total = 0;
+
+    const mainStyleDiv = {
+      padding: '10px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      alignItems: 'center',
+      background: '#faffbd'
+    }
+
+    const mainStyleDivSpan = {
+      fontFamily: font,
+      fontSize: '80%',
+      background: 'transparent',
+      color: '#555'
+    }
+
+    const mainStyleDivSpanH5 = {
+      background: 'transparent',
+      margin: '0px',
+      fontSize: '100%',
+      color: '#000'
+    }
+
+    const mainStyleDivlastOfType = {
+      borderBottomLeftRadius: '5px',
+      borderBottomRightRadius: '5px',
+      marginTop: '15px',
+      backgroundColor: '#fff'
+    }
+
     return (
       <div>
         {
@@ -121,52 +152,114 @@ export default class Form extends Component {
             return (
               <Fragment key={o}>
                 <h5>{i.title}</h5>
-                <div>
-                  <span>#{i.invoiceNumber}</span>
-                  <span>{i.quantity} {i.quantity > 1 ? 'pcs' : 'pc'}</span>
-                  <span>₦{i.cost}</span>
+                <div style={mainStyleDiv}>
+                  <span style={mainStyleDivSpan}>#{i.invoiceNumber}</span>
+                  <span style={mainStyleDivSpan}>{i.quantity} {i.quantity > 1 ? 'pcs' : 'pc'}</span>
+                  <span style={mainStyleDivSpan}>₦{i.cost}</span>
                 </div>
               </Fragment>
             )
           })
         }
-        <div key="x">
-          <span><h5>TOTAL</h5></span>
-          <span><h5>₦{total}</h5></span>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivlastOfType)}>
+          <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>TOTAL</h5></span>
+          <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>₦{total}</h5></span>
         </div>
       </div>
     )
   }
 
-  info(){
+  info() {
     const { _name, phone, email } = this.state.customer;
+    const font = 'Roboto,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Cantarell,Open Sans,"Helvetica Neue",sans-serif';
+    let mainStyleDiv = {
+      padding: '10px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      alignItems: 'center'
+    }
+    
+    const mainStyleDivSpan = {
+      fontFamily: font,
+      fontSize: '80%',
+      background: 'transparent',
+      color: '#555'
+    }
+
+    const mainStyleDivSpanH5 = {
+      background: 'transparent',
+      margin: '0px 5px 0px 0px',
+      fontSize: '100%',
+      color: '#000'
+    }
+
+    const mainStyleDivFirstOfType = {
+      borderTopLeftRadius: '5px',
+      borderTopRightRadius: '5px'
+    }
+
+    const mainStyleDivlastOfType = {
+      borderBottomLeftRadius: '5px',
+      borderBottomRightRadius: '5px'
+    }
+
+    const mainStyleDivNthOfTypeEven = {
+      backgroundColor: '#faffbd',
+    }
+    
+    const mainStyleDivNthOfTypeOdd = {
+      backgroundColor: '#fff',
+    }
     return (
-      <div>        
-        <div>
-          <span>Name:</span>
-          <span><h5>{_name}</h5></span>
+      <div>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivFirstOfType)}>
+          <span style={mainStyleDivSpan}>Name:</span>
+          <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>{_name}</h5></span>
         </div>
-        <div>
-          <span>Email:</span>
-          <span><h5>{email}</h5></span>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeOdd)}>
+          <span style={mainStyleDivSpan}>Email:</span>
+          <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>{email}</h5></span>
         </div>
-        <div>
-          <span>Phone:</span>
-          <span><h5>{phone}</h5></span>
+        <div style={Object.assign({}, mainStyleDiv, mainStyleDivNthOfTypeEven, mainStyleDivlastOfType)}>
+          <span style={mainStyleDivSpan}>Phone:</span>
+          <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>{phone}</h5></span>
         </div>
       </div>
     )
- }
+  }
 
-  done(){
+  done() {
+    const T1 = 'orange';
+    const font = 'Roboto,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Cantarell,Open Sans,"Helvetica Neue",sans-serif';
+    const mainStyle = {
+      padding: '0px 20px 20px',
+      minHeight: '70%',
+      marginTop: window.innerWidth > 600 ? '40px' : '80px'
+    }
+
+    const mainStyleH3 = {
+      fontFamily: font
+    }
+
+    const mainStyleH4 = {
+      color: T1,
+      fontFamily: font
+    }
+
+    const mainStyleH5 = {
+      fontSize: '83%',
+      fontFamily: font
+    }
+
     return (
-      <main className="order-received-tab">
-        <h3>ORDER RECEIVED</h3>
-        <h4>#{this.state.invoiceNumber}</h4>  
+      <main className="order-received-tab" style={mainStyle}>
+        <h3 style={mainStyleH3}>ORDER RECEIVED</h3>
+        <h4 style={mainStyleH4}>#{this.state.invoiceNumber}</h4>
         {this.rows()}
-        <h5>Customer Details</h5>
+        <h5 style={mainStyleH5}>Customer Details</h5>
         {this.info()}
-        <a href="/">CONTINUE SHOPPING</a>
+        <a href="/" style={{ display: 'none' }}>CONTINUE SHOPPING</a>
       </main>
     )
   }

@@ -15,6 +15,6 @@ export default class App extends Component {
   }
   
   render() {
-    return <UI data={this.state} actions={this.actions} />;
+    return <UI />;
   }
 }

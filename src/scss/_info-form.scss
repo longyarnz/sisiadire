@@ -57,4 +57,9 @@ form.info-form{
       height: 0px;
     }
   }
+
+  @media screen and (min-width: $min) {
+    width: 600px; 
+    padding: 0px 25px;
+  }
 }

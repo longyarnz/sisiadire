@@ -153,30 +153,30 @@
 //       backgroundColor: '#faffbd',
 //     }
 //     return (
-//       <div>
-//         {
-//           this.props.cart.map((i, o, u) => {
-//             total += i.cost;
-//             mainStyleDiv = o === 0 ? [mainStyleDiv, mainStyleDivFirstOfType] : [mainStyleDiv];
-//             o % 2 === 0 && mainStyleDiv.push(mainStyleDivNthOfTypeEven);
-//             o % 2 === 1 && mainStyleDiv.push(mainStyleDivNthOfTypeOdd);
-//             return (
-//               <Fragment key={o}>
-//                 <h5>{i.title}</h5>
-//                 <div style={mainStyleDiv}>
-//                   <span style={mainStyleDivSpan}>#{i.invoiceNumber}</span>
-//                   <span style={mainStyleDivSpan}>{i.quantity} {i.quantity > 1 ? 'pcs' : 'pc'}</span>
-//                   <span style={mainStyleDivSpan}>₦{i.cost}</span>
-//                 </div>
-//               </Fragment>
-//             )
-//           })
-//         }
-//         <div style={mainStyleDivLastOfType}>
-//           <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>TOTAL</h5></span>
-//           <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>₦{total}</h5></span>
-//         </div>
-//       </div>
+      // <div>
+      //   {
+      //     this.props.cart.map((i, o, u) => {
+      //       total += i.cost;
+      //       mainStyleDiv = o === 0 ? [mainStyleDiv, mainStyleDivFirstOfType] : [mainStyleDiv];
+      //       o % 2 === 0 && mainStyleDiv.push(mainStyleDivNthOfTypeEven);
+      //       o % 2 === 1 && mainStyleDiv.push(mainStyleDivNthOfTypeOdd);
+      //       return (
+      //         <Fragment key={o}>
+      //           <h5>{i.title}</h5>
+      //           <div style={mainStyleDiv}>
+      //             <span style={mainStyleDivSpan}>#{i.invoiceNumber}</span>
+      //             <span style={mainStyleDivSpan}>{i.quantity} {i.quantity > 1 ? 'pcs' : 'pc'}</span>
+      //             <span style={mainStyleDivSpan}>₦{i.cost}</span>
+      //           </div>
+      //         </Fragment>
+      //       )
+      //     })
+      //   }
+      //   <div style={mainStyleDivLastOfType}>
+      //     <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>TOTAL</h5></span>
+      //     <span style={mainStyleDivSpan}><h5 style={mainStyleDivSpanH5}>₦{total}</h5></span>
+      //   </div>
+      // </div>
 //     )
 //   }
 

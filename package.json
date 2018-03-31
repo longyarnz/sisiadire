@@ -62,6 +62,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
+  "proxy": "http://sisiadire.io:8080",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
@@ -106,6 +107,5 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "proxy": "http://sisiadire.io:8080"
+  }
 }

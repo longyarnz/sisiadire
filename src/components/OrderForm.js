@@ -40,7 +40,6 @@ export default class OrderForm extends Component {
     do {
       mail = await this.submitMail();
       form = await this.submitForm();
-      console.log(mail, form);
     }
     while (!form)
     if (form) setTimeout(() => {
@@ -57,7 +56,6 @@ export default class OrderForm extends Component {
       method: 'POST',
       body: JSON.stringify({ record })
     }).then(res => res.json());
-    console.log(result);
     return result;
   }
 
@@ -68,7 +66,7 @@ export default class OrderForm extends Component {
     delete params['_name'];
     params['products'] = params['order'];
     delete params['order'];
-    const result = await fetch('http://sisiadire.com.ng/controlla/req', {
+    const result = await fetch(process.env.REACT_APP_API, {
       method: 'POST',
       body: JSON.stringify({
         type: 'addInvoice', params
@@ -105,7 +103,6 @@ export default class OrderForm extends Component {
         break;
       default:
         this.setState(i => {
-          console.log(e.target.value);
           let { customer } = i;
           customer.order = e.target.value;
           return { customer }

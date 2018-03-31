@@ -19,7 +19,7 @@ export default class Shop extends Component {
     this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       view: this.showAll(),
-      title: "Àdìre Store",
+      title: "Àdìre Store", shouldReload: 1,
       scrolled: '', ball: false,
       checkout: false, cart: [],
       info: false, customer: this.props.data.customer
@@ -32,7 +32,7 @@ export default class Shop extends Component {
 
   empty() {
     this.props.actions.add(false);
-    this.setState({ cart: [] });
+    this.setState({ cart: [], shouldReload: 0 });
   }
 
   updateCart(cart) {
@@ -103,7 +103,7 @@ export default class Shop extends Component {
 
   render() {
     const { actions } = this.props;
-    const { cart, ball, info, infoPoint } = this.state;
+    const { cart, ball, info, infoPoint, shouldReload } = this.state;
     return (
       <Fragment>
         <Nav type={false} cart={cart.length} click={actions.back} blog={false} checkout={this.checkout} attr="scrolled" />
@@ -128,7 +128,7 @@ export default class Shop extends Component {
         }
         {
           info &&
-          <Import name="Ball" toggle={this.seeForm} cart={cart.length} story={infoPoint}>
+          <Import name="Ball" toggle={this.seeForm} cart={cart.length} story={infoPoint} reload={shouldReload} actions={actions}>
             <Import name="Form" upload={this.genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
           </Import>
         }

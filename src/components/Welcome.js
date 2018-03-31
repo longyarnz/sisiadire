@@ -6,7 +6,7 @@ import Import from './Import';
 import CheckoutTab from './CheckoutTab';
 import MenuTab from './MenuTab';
 import ScrolledNav from './ScrolledNav';
-import image from "../files/demo.jpg";
+// import image from "../files/demo.jpg";
 
 export default class Welcome extends Component {
   constructor(props) {
@@ -23,17 +23,15 @@ export default class Welcome extends Component {
     }
     this.state = {
       modal: false, ball: false, scrolled: '', check: false, items: [], blog: [],
-      data: { cart: [] }, info: false, customer: this.props.data.customer
+      info: false, customer: this.props.data.customer, cart: [], shouldReload: 1
     }
   }
 
   updateCart(cart) {
-    const { data } = this.state;
-    data.cart = cart;
-    this.setState({ data });
+    this.setState({ cart });
   }
 
-  handleScroll(){
+  handleScroll() {
     const top = document.scrollingElement.scrollTop;
     if (top > 49 && this.state.scrolled !== 'scrolled') this.setState({ scrolled: 'scrolled' });
     else if (top === 0 && this.state.scrolled !== 'scrolled top' && this.state.scrolled === 'scrolled') {
@@ -45,12 +43,12 @@ export default class Welcome extends Component {
     else return;
   }
 
-  componentWillMount(){
-    this.setState({ data: this.props.data });
+  componentWillMount() {
+    this.setState({ data: this.props.data, cart: this.props.data.cart });
   }
-  
-  componentWillReceiveProps({ data }){
-    this.setState({ data });
+
+  componentWillReceiveProps({ data }) {
+    this.setState({ data, cart: data.cart });
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -62,7 +60,7 @@ export default class Welcome extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
-  
+
   // blog(){
   //   const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, ducimus ab corrupti amet nihil porro esse. Ipsam vel commodi ipsa consectetur est doloribus nemo. Cumque blanditiis maiores incidunt facilis neque.";
   //   return [
@@ -111,47 +109,44 @@ export default class Welcome extends Component {
   //   ]
   // }
 
-  genInfo(customer){
+  genInfo(customer) {
     const { view } = this.props.data;
     view !== null && view.props.name === 'Welcome' && this.setState({ customer });
     this.props.actions.genInfo(customer);
   }
 
-  seeForm(infoPoint) {
-    this.setState(i => ({ info: !i.info, infoPoint }));
+  seeForm(infoPoint, formType) {
+    this.setState(i => ({ info: !i.info, infoPoint, formType }));
   }
- 
-  seeBlogList(){
+
+  seeBlogList() {
     this.setState(i => ({ modal: !i.modal }));
   }
 
-  seeBall(story){
+  seeBall(story) {
     this.setState(i => ({ ball: !i.ball, story }));
   }
 
-  checkout(){
+  checkout() {
     this.setState(i => ({ check: !i.check }));
   }
 
   empty() {
     this.props.actions.add(false);
-    const { data } = this.state;
-    data.cart = [];
-    this.setState({ data });
+    this.setState({ cart: [], shouldReload: 0 });
   }
-  
+
   render() {
     const actions = Object.assign({}, this.props.actions, this.actions);
-    // eslint-disable-next-line
     const { seeBlog, seeBall, checkout, seeForm, genInfo } = actions;
-    // eslint-disable-next-line
-    const { data, data: {cart, blog, items}, modal, check, ball, story, scrolled, info, infoPoint } = this.state;
+    const { cart, data, data: { blog, items }, modal, check, ball, story, scrolled, info, infoPoint, formType, shouldReload } = this.state;
+    let Tab = <CheckoutTab cart={cart} actions={actions} updateItem={this.updateCart} showInfo={seeForm} />;
     return (
       <Fragment>
         <Nav type={true} attr="null" cart={cart.length} click={seeBlog} checkout={checkout} />
-        <Banner />
-        {/* <OrderButton click={seeForm} /> */}
+        {/* <Banner /> */}
         <Import name="Category" items={items} data={data} actions={actions} />
+        <OrderButton click={seeForm} />
         <Import name="About" />
         <Import name="Contact" />
         <Import name="Footer" />
@@ -163,18 +158,18 @@ export default class Welcome extends Component {
         }
         {
           check &&
-          <Import name="Modal" toggle={checkout}>
-            <CheckoutTab slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={seeForm} />
+          <Import name="Modal" toggle={checkout} cart={cart}>
+            {Tab}
           </Import>
         }
         {
           ball &&
           <Import name="Ball" toggle={seeBall} cart={cart.length} story={story} />
         }
-        { info &&
-          <Import name="Ball" toggle={seeForm} cart={cart.length} story={infoPoint}>
-            <Import name="OrderForm" upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
-          </Import> 
+        {info &&
+          <Import name="Ball" toggle={seeForm} cart={cart.length} story={infoPoint} reload={shouldReload} actions={actions}>
+            <Import name={formType} upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
+          </Import>
         }
         {
           scrolled !== '' &&

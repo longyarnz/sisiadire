@@ -8,9 +8,9 @@ export default class Modal extends Component {
     this.close = this.close.bind(this);
     this.get = this.get.bind(this);
     const child = Object.assign({}, this.props.children);
-    const char = Object.assign({}, child.props);
-    char.closeModal = this.close;
-    child.props = char;
+    const childProps = Object.assign({}, child.props);  
+    childProps.closeModal = this.close;
+    child.props = childProps;
     this.state = { confirmed: false, notReady: false, child }
   }
 
@@ -21,7 +21,7 @@ export default class Modal extends Component {
   componentWillUnmount(){
     document.getElementsByTagName('html')[0].style.overflow = 'auto';
   }
-  
+
   close() {
     if(this.state.notReady) return;
     this.setState({ direction: 'reverse', notReady: true });

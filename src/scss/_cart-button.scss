@@ -2,6 +2,7 @@ div.cart-button{
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 
   & > a{
     position: absolute;
@@ -10,7 +11,7 @@ div.cart-button{
     align-items: center;
     height: 55px;
     width: 55px;
-    top: -42px;
+    top: -34px;
     background-color: transparent;
     margin: auto;
     transition: all .25s ease;

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import App from './components/App';
+import Import from './components/Import';
 
 export default class GrayArea extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      view: <App />
+      view: <Import name="UI" />
     }
   }
   
   async componentDidCatch(error, info){
-    const { default: Error } = await import('./components/Error');
-    this.setState({ view: <Error error={error} info={info} /> });
+    this.setState({ view: <Import name="Error" error={error} info={info} /> });
   }
 
   render() {

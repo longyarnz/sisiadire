@@ -17,8 +17,8 @@ export default class CheckoutTab extends Component {
     this.componentWillReceiveProps(this.props);
   }
 
-  componentWillReceiveProps({ slabs }) {
-    this.setState({ cart: slabs });
+  componentWillReceiveProps({ cart }) {
+    this.setState({ cart });
   }
   
   handleClick(invoiceNumber){
@@ -28,7 +28,7 @@ export default class CheckoutTab extends Component {
 
   seeInfo(e) {
     const { clientX: x, clientY: y } = e.nativeEvent;
-    this.props.showInfo({ x, y });
+    this.props.showInfo({ x, y }, 'Form');
   }
 
   tabs() {
