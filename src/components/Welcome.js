@@ -144,7 +144,7 @@ export default class Welcome extends Component {
     return (
       <Fragment>
         <Nav type={true} attr="null" cart={cart.length} click={seeBlog} checkout={checkout} />
-        {/* <Banner /> */}
+        <Banner />
         <Import name="Category" items={items} data={data} actions={actions} />
         <OrderButton click={seeForm} />
         <Import name="About" />
