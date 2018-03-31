@@ -43,7 +43,7 @@ export default class Category extends Component {
           </div>
           <footer>
             <a className="view-all" onClick={() => this.click(i.category)}>View All</a>
-            <i className="material-icons">chevron_right</i>
+            <i className="material-icons">chevron_left</i>
           </footer>
         </main>
       )
