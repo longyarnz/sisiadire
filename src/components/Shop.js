@@ -117,7 +117,7 @@ export default class Shop extends Component {
         {
           this.state.checkout &&
           <Import name="Modal" toggle={this.checkout}>
-            <Import name="CheckoutTab" slabs={cart} actions={actions} updateItem={this.updateCart} showInfo={this.seeForm} />
+            <Import name="CheckoutTab" cart={cart} actions={actions} updateItem={this.updateCart} showInfo={this.seeForm} />
           </Import>
         }
         {
