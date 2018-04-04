@@ -7,10 +7,9 @@
 /coverage
 
 # production
-/build*
-/assets
-/assets
-/meta-manage
+build/
+assets/
+meta-manage/
 
 # misc
 .DS_Store
