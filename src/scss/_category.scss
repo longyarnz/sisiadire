@@ -67,7 +67,7 @@ section.category {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-content: flex-start;
         align-items: flex-start
       }
@@ -92,7 +92,7 @@ section.category {
         
         @media screen and (min-width: $min) {
           width: calc(25% - 10px);
-          margin: 10px 0px;
+          margin: 10px 5px;
         }
         
         & > img{

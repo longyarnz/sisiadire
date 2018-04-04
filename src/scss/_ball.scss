@@ -73,13 +73,12 @@ section.ball {
     overflow: auto;
 
     @media screen and (min-width: $min) {
-      width: 100%;
+      width: 100vw;
       height: 100%;
       overflow-x: hidden;
       margin: auto;
       left: 0px;
       right: auto;
-      // padding: 80px calc(50% - 300px) 0px;
     }
   }
 
