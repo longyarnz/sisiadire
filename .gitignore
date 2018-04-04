@@ -9,6 +9,8 @@
 # production
 /build*
 /assets
+/assets
+/meta-manage
 
 # misc
 .DS_Store
