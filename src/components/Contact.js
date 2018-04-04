@@ -2,7 +2,6 @@ import React from 'react';
 import Icon from './Icon';
 
 export default function Contact() {
-  const phone = '2349095522828';
   return (
     <section className="contact">
       <h1>SisíÀdìre</h1>
@@ -15,10 +14,10 @@ export default function Contact() {
         You are welcome to <span>call us</span> anyday, anytime for your choice Àdìre wears.
         We design fabrics and items with Adire. <br />
         All items are professionally crafted and available for order. <br />
-        Call us on: <a href={`tel:${phone}`}>{phone}</a>
+        Call us on: <a href="tel:09095522828">09095522828</a>
       </p>
       <span>Social Media: </span><div>
-        <Icon type="whatsapp" src={`https://api.whatsapp.com/send?phone=${phone}&text=I%20want%20to%20make%20an%20order%20SisíÀdìre`} />
+        <Icon type="whatsapp" src={`https://api.whatsapp.com/send?phone=2349095522828&text=I%20want%20to%20make%20an%20order%20SisíÀdìre`} />
         <Icon type="facebook" src="https://web.facebook.com/Sisiadire_designs-1737221739901322" />
         <Icon type="twitter" />
         <Icon type="instagram" src="https://www.instagram.com/sisiadire_designs/" />

@@ -1,7 +1,30 @@
 main.order-received-tab{
   padding: 0px 20px 20px;
-  min-height: 70%;
+  min-height: 100%;
   margin-top: 80px;
+
+  & > p{
+    line-height: 1.8;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 80%;
+
+    & > span{
+      display: flex;
+      justify-content: space-between;
+      color: $T1;
+      font-weight: 700;
+
+      & > b{
+        color: #010101;
+      }
+    }
+
+    & > em{
+      color: $T1;
+      font-weight: 700;
+    }
+  }
 
   & > a{
     border: none;

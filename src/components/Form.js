@@ -234,8 +234,7 @@ export default class Form extends Component {
     const font = 'Roboto,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Cantarell,Open Sans,"Helvetica Neue",sans-serif';
     const mainStyle = {
       padding: '0px 20px 20px',
-      minHeight: '70%',
-      marginTop: window.innerWidth > 600 ? '40px' : '80px'
+      marginTop: window.innerWidth > 600 ? '80px' : '40px'
     }
 
     const mainStyleH3 = {
@@ -259,7 +258,25 @@ export default class Form extends Component {
         {this.rows()}
         <h5 style={mainStyleH5}>Customer Details</h5>
         {this.info()}
-        <a href="/" style={{ display: 'none' }}>CONTINUE SHOPPING</a>
+        <h5>How To Pay</h5>
+        <p>
+          You may purchase your order using the account details printed below to make transfer or bank payment. After payment, it is required that you send the transaction details such as <em>name, amount paid, invoice number and products ordered</em> by mail, SMS, or chat in order to fast track delivery of services.
+          <span>
+            <b>Bank:</b> GTBank
+          </span>
+          <span>
+            <b>Account Name:</b> Ademiluyi Eniola
+          </span>
+          <span>
+            <b>Account Number:</b> 0225592211
+          </span>
+          <span>
+            <b>Phone Number:</b>09095522828
+          </span>
+          <span>
+            <b>Email:</b>hennyiedee@gmail.com
+          </span>
+        </p>
       </main>
     )
   }

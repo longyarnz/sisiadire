@@ -36,9 +36,9 @@ export default class OrderForm extends Component {
     e.preventDefault();
     e.persist();
     this.setState({ submit: true });
-    let form = false, mail = false;
+    let form = false;
     do {
-      mail = await this.submitMail();
+      this.submitMail();
       form = await this.submitForm();
     }
     while (!form)
@@ -72,7 +72,6 @@ export default class OrderForm extends Component {
         type: 'addInvoice', params
       })
     }).then(res => res.json());
-    console.log(result);
     return result[0]['invoice'] === invoice;
   }
 
@@ -251,8 +250,7 @@ export default class OrderForm extends Component {
     const font = 'Roboto,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Cantarell,Open Sans,"Helvetica Neue",sans-serif';
     const mainStyle = {
       padding: '0px 20px 20px',
-      minHeight: '70%',
-      marginTop: '80px'
+      marginTop: window.innerWidth > 600 ? '80px' : '40px'
     }
 
     const mainStyleH3 = {
@@ -276,7 +274,10 @@ export default class OrderForm extends Component {
         {this.rows()}
         <h5 style={mainStyleH5}>Customer Details</h5>
         {this.info()}
-        <a href="/" style={{ display: 'none' }}>CONTINUE SHOPPING</a>
+        <h5>We Shall Contact You Shortly</h5>
+        <p>
+          We are processing your order and thereafter <em>we shall contact you</em> for more details regarding your order. Please keep the <em>details</em> of this order handy as we shall require use of it in our dealings with you. You may continiue shopping or checkout our <em>blog</em> on the homepage. For more details, contact Sisí Àdìre at <em>09095522828</em>.
+        </p>
       </main>
     )
   }
