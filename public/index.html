@@ -67,10 +67,12 @@
 
     @keyframes sweller {
       from {
-        transform: scale(0.2, 0.17)
+        transform: scale(0.2, 0.17);
+        opacity: 1;
       }
       to {
-        transform: scale(0.25, 0.22)
+        transform: scale(0.25, 0.22);
+        opacity: .4;
       }
     }
 
@@ -110,7 +112,7 @@
       font-weight: 400;
       font-size: 250%;
       margin: auto;
-      animation: sweller .4s ease-in-out forwards infinite alternate
+      animation: sweller .6s ease-in-out forwards infinite alternate
     }
 
     div#soil>section>main>img{
