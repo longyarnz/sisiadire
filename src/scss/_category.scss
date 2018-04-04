@@ -106,11 +106,12 @@ section.category {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          flex-wrap: nowrap;
           background-color: #fff;
           margin-top: -5px;
           border-bottom-left-radius: 10px;
           border-bottom-right-radius: 10px;
-          padding: 5px;
+          padding: 8px 3px;
 
           & > h3{
             font-family: $font;
@@ -126,6 +127,9 @@ section.category {
             &:first-of-type{
               color: gray;
               font-weight: 300;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              padding-right: 4px;
             }
           }
         }
