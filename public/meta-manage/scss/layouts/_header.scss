@@ -1,0 +1,51 @@
+header{
+	width: 100%;
+	position: relative;
+	height: auto;
+	padding: 6px;
+	text-align: center;
+	color: #515154;
+	background-color: darken(#fff, 0%);
+	overflow: hidden; 
+	z-index: 60;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+	cursor: pointer;
+	transition: display .5s ease-out;
+
+	h4{
+		font-family: 'aldrich', sans-serif;
+		font-weight: 400;
+		font-size: 110%;
+		letter-spacing: .25px;
+
+		i{
+			color: red;
+		}
+
+		span{
+			margin-left: 5px;
+		}
+
+		@media screen and (max-width: 767px) {
+			font-size: 150%;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		font-size: 75%;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	div.update-bar{
+		width: 0%;
+		height: 5px;
+		background-color: gray;
+		position: absolute;
+		bottom: 1px;
+		left: 0;
+		transition: width .5s ease-out;
+	}
+}
