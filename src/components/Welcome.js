@@ -1,10 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import Nav from './Nav';
+import Ball from './Ball';
 import Banner from './Banner';
 import OrderButton from './OrderButton';
+import OrderForm from './OrderForm';
+import Form from './Form';
 import Import from './Import';
 import CheckoutTab from './CheckoutTab';
 import MenuTab from './MenuTab';
+import Modal from './Modal';
 import ScrolledNav from './ScrolledNav';
 // import image from "../files/demo.jpg";
 
@@ -115,8 +119,8 @@ export default class Welcome extends Component {
     this.props.actions.genInfo(customer);
   }
 
-  seeForm(infoPoint, formType) {
-    this.setState(i => ({ info: !i.info, infoPoint, formType }));
+  seeForm(infoPoint, FormType) {
+    this.setState(i => ({ info: !i.info, infoPoint, FormType }));
   }
 
   seeBlogList() {
@@ -139,7 +143,7 @@ export default class Welcome extends Component {
   render() {
     const actions = Object.assign({}, this.props.actions, this.actions);
     const { seeBlog, seeBall, checkout, seeForm, genInfo } = actions;
-    const { cart, data, data: { blog, items }, modal, check, ball, story, scrolled, info, infoPoint, formType, shouldReload } = this.state;
+    const { cart, data, data: { blog, items }, modal, check, ball, story, scrolled, info, infoPoint, FormType, shouldReload } = this.state;
     let Tab = <CheckoutTab cart={cart} actions={actions} updateItem={this.updateCart} showInfo={seeForm} />;
     return (
       <Fragment>
@@ -152,24 +156,25 @@ export default class Welcome extends Component {
         <Import name="Footer" />
         {
           modal &&
-          <Import name="Modal" toggle={seeBlog}>
+          <Modal toggle={seeBlog}>
             <MenuTab slabs={blog} showBall={seeBall} />
-          </Import>
+          </Modal>
         }
         {
           check &&
-          <Import name="Modal" toggle={checkout} cart={cart}>
+          <Modal toggle={checkout} cart={cart}>
             {Tab}
-          </Import>
+          </Modal>
         }
         {
           ball &&
-          <Import name="Ball" toggle={seeBall} cart={cart.length} story={story} />
+          <Ball toggle={seeBall} cart={cart.length} story={story} />
         }
         {info &&
-          <Import name="Ball" toggle={seeForm} cart={cart.length} story={infoPoint} reload={shouldReload} actions={actions}>
-            <Import name={formType} upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />
-          </Import>
+          <Ball toggle={seeForm} cart={cart.length} story={infoPoint} reload={shouldReload} actions={actions}>
+            {FormType === "Form" && <Form upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />}
+            {FormType === "OrderForm" && <OrderForm upload={genInfo} customer={this.state.customer} cart={cart} empty={this.empty} />}
+          </Ball>
         }
         {
           scrolled !== '' &&

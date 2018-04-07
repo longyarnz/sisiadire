@@ -36,7 +36,15 @@ export default class Category extends Component {
             {
               u.map((a, e) => {
                 return a.category === i.category ? (
-                  <Charts title={i.title} ctg={i.category} img={i.picture_file} attr="chart" click={() => this.click(i)} tag={i.tag} key={e} />
+                  <Charts 
+                    title={i.title} 
+                    ctg={i.category} 
+                    img={i.picture_file} 
+                    attr="chart" 
+                    click={() => this.click(i)} 
+                    tag={i.tag} 
+                    key={e} 
+                  />
                 ) : null;
               })
             }

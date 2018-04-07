@@ -26,7 +26,7 @@ export default class UI extends Component {
   }  
 
   componentWillMount(){
-    fetch(process.env.REACT_APP_API, {
+    fetch('http://sisiadire.com.ng/controlla/req', {
       method: 'POST',
       body: JSON.stringify({
         type: 'initialize',
